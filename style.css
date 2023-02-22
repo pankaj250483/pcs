@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+:root 
+{
+    --blue: #45ace7;
+    --white: #ffffff;
+}
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    color: white;
+    background: #434459;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+i
+{
+    font-size:x-large;
+    padding: 10px;
+}
+
+.social:link .social:active, .social:visited
+{
+    color: white;
+}
+
+.social:hover
+{
+    color:  var(--blue);
+}
+
+li
+{
+    padding:5px 15px;
+}
+
+.bg-blue
+{
+    background-color:  var(--blue);
+}
+
+.fg-blue
+{
+    color: var(--blue);
+}
+
+.parallex, .parallex1
+{
+    background: url("images/header-1.jpg");
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+.parallex1
+{
+    background: url("images/robot.jpg");
+}
+
+
+.brain-text
+{
+    font-family: 'Caveat', cursive;
+    font-size: 50px;
+}
+
+.digital-text
+{
+    font-family: 'Zilla Slab', serif;
+    font-size: 50px;
+    
+}
+
+.p-text
+{
+    font-size: 22px;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.fade-in-image 
+{
+    opacity: 100%;
+    transition:opacity 2s;
+}
+
+.fade-in-image:hover 
+{
+    opacity:80%;
+    transition:opacity 2s;
+}
+
+.dots
+{
+    background: url(images/dots.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.noselect 
+{
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
+.h-fix
+{
+    max-height: 400px;
+}
+
+
+a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medium=clients&utm_content=google-reviews&utm_term=undefined&utm_campaign=free-widget"]
+{
+  display: none !important;
+}
+
+[aos="fade"] {
+    opacity: 0;
+    transition-property: opacity;
+  }
+  
+  [aos="fade"].aos-animate {
+    opacity: 1;
+  }
