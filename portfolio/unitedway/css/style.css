@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root
+{
+--sandybrown: #f5b250;
+--bluetheme: #155694;
+--tomato: #ea5033;
+--tomato2: #eb5c55;
+--lightgrey: #cccccc;
+--cornflowerblue: #529ecf;
+}
+
+.sandybrown {background-color: var(--sandybrown); }
+.bluetheme {background-color: var(--bluetheme); }
+.tomato {background-color: var(--tomato); }
+.tomato2 {background-color: var(--tomato2); }
+.lightgrey {background-color: var(--lightgrey); }
+.cornflowerblue {background-color: var(--cornflowerblue); }
+
+*
+{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+body
+{
+    background-color: gainsboro;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo
+{
+    width: 250px;
+    height: auto;
+}
+
+.nav-item
+{
+    display: flex;
+    align-items: flex-end;
+}
+
+.nav-link
+{
+    font-size: 32px !important;
+    font-weight: 800 !important;
+}
+
+.story-text
+{
+    font-size: 32px;
+}
+
+.lead
+{
+    font-weight: 900;
+}
+
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+}
+
+.greybutton:link,.greybutton:active, .greybutton:visited
+{
+    padding: 15px;
+    font-size: 32px;
+    background-color: var(--lightgrey);
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.bottom-bdr
+{
+    border-bottom: 5px solid black;
+}
+
+.greybutton:hover
+{
+    background-color: aliceblue;
+}
+
+.bi
+{
+    font-size: 3rem !important;
+}
+
+.social:link, .social:active, .social:visited
+{
+    color: black;
+    text-decoration: none;  
+    padding: 10px;
+}
+
+.footer-link:link, .footer-link:active, .footer-link:visited
+{
+    display: block;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;  
+    font-weight: 600;  
+}
+
+.footer-link:hover, .social:hover
+{
+    color: var(--bluetheme);
+}
+
+
+.img1
+{
+  height:280px;
+}
+
+.center {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  font-size:28px;
+  color:white;
+  background-color:rgb(255, 0, 0);
+  text-align: center;
+  opacity:0.8;
+  padding:10px 10px 10px 10px;
+
+}
+
+.container-img {
+  position: relative;
+}
+
+.btn-lg
+{
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px 15px;
+    font-size: 42px;
+    font-weight: 1200 !important;
+}
+
+.form-control
+{
+    margin-bottom: 15px;
+}

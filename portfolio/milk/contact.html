@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Milk Company</title>
+  <link rel="icon" type="image/x-icon" href="bilder/favicon.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap free css for making deisgn responsive for mobile version-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- bootstrap free js bundle for making deisgn responsive for mobile version-->
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- icon library for making social media icons -->
+  <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>
+  
+  <!-- custom css style-->
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="bilder/logo.png" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item ps-2 pe-2">
+                <a class="nav-link" href="index.html">HOME</a>
+              </li>
+              <li class="nav-item ps-2 pe-2">
+                <a class="nav-link" href="product.html">PRODUCT</a>
+              </li>
+              <li class="nav-item ps-2 pe-2">
+                <a class="nav-link active" aria-current="page" href="contact.html">CONTACT</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+<!-- HEADER SECTION -->      
+<div class="container-fluid p-5 header">
+    <div class="row p-2 d-flex justify-content-center">
+        <div class="col-md-9 text-center">
+            <h1 class="mt-3 mb-3 text-white">FRECHDACHS</h1>
+            <h4 class=" text-white">Der leckere Bio-Milchdrink</h4>
+    </div>
+    </div>
+</div>      
+
+<!-- CONTACT SECTION -->
+<div class="container p-5 mt-5">
+    <div class="row d-flex justify-content-center align-items-baseline">
+      <!-- CONTACT INFORMATION -->
+       <div class="col-md-4">
+        <h1>SIE HABEN FRAGEN ZU UNSEREN PRODUKTEN?</h1>
+        <p class="text-secondary">Bitte wenden Sie sich an unser Konsumentenservice (konsumenten.service@noem.at). Bei Produktmeldungen senden Sie uns bitte ein Foto inklusive Chargennummer und MHD. Wir werden uns anschließend bei Ihnen melden. Bei Fragen sind wir auch unter 0800 800 500 erreichbar.</p>
+        <h3 class="text-secondary">Telefon</h3>
+        <p>+43 800 800 500</p>
+        <h3 class="text-secondary">Montag - Donnerstag</h3>
+        <p>09:00 bis 15:00 Uhr</p>
+        <h3 class="text-secondary">Freitag</h3>
+        <p>09:00 bis 12:00 Uhr</p>
+        <h3 class="text-secondary">E-Mail</h3>
+        <p>konsumenten.service@noem.at </p>
+      </div>
+
+      <!-- CONTACT FORM COLUMN -->
+      <div class="col-md-7">
+        <form action="#">
+        <div class="row">
+          <div class="col-md-12">
+            <label>NACHNAME *</label>
+            <input type="text" name="NACHNAME" required>  
+            <label>TELEFON *</label>
+            <input type="text" name="TELEFON" required>  
+            <label>E-MAIL *</label>
+            <input type="email" name="ORT" required>  
+            <label>IHRE NACHRICHT *</label>
+            <textarea></textarea>
+            <label>Upload File</label>
+            <input type="file" name="filesupload" multiple>
+            <p>
+              <input type="checkbox" name="check" class="check"> 
+              Ich bin mit der Speicherung meiner Daten einverstanden. Mehr in der<br>
+              <a href="#">Datenschutzbestimmung </a>*
+            </p>
+          </div>
+        </div>
+       <input type="submit" class="btn btn-success" value="SENDEN" style="Width:auto;padding: 5px 35px;">
+       </form>
+       <br><br>
+        <p class="text-end instruction"><small>Ihre angegeben personenbezogenen Daten werden ausschließlich für den Zweck Ihrer Kontaktaufnahme verwendet und nach Erledigung nicht weiter verarbeitet. Nicht-personen bezogene Daten wie Informationen zu Produkten werden zur Qualitätssicherung unserer Produkte und Dienstleistungen protokolliert. Wir nehmen Datenschutz ernst, hier finden Sie unsere Datenschutzerklärung.</small></p>
+      </div>
+    </div>
+</div>
+
+
+<!-- FOOTER SECTION -->
+<div class="container-fluid bg-light p-5">
+<div class="row p-5">
+    <div class="col-md-3">
+    <h4 class="text-dark">Address:</h4>
+    <address class="text-dark">
+    XYZ Lane<br>
+    Golden Cow City<br>
+    United States-S04-034<br>
+    </address>    
+    </div>
+    <div class="col-md-3">
+        <h4 class="text-dark">Telephone</h4>
+        <p class="text-dark">+1-(936)-911-911</p>
+        <h4 class="text-dark">E-mail:</h4>
+        <p class="text-dark">admin@cowcity.com</p>
+    </div>
+    <div class="col-md-4">
+        <p style="line-height: 2;">
+            <a href="#" class="footer">IMPRESSUM & RECHTLICHE HINWEISE</a>
+        <br><a href="#" class="footer">SITEMAP</a>
+        <br><a href="#" class="footer">AGBS</a>
+        <br><a href="#" class="footer">DATENSCHUTZBESTIMMUNG</a>
+        </p>
+    </div>
+    <div class="col-md-2">
+        <a href="#"><i class="fab fa-facebook social"></i></a>
+        <a href="#"><i class="fab fa-instagram social"></i></a>
+        <a href="#"><i class="fab fa-xing social"></i></a>
+    </div>
+    
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6 text-center text-dark">
+    &copy; All right reserved Milk Company.
+    </div>
+</div>
+</div>
+    
+</body>
+</html>

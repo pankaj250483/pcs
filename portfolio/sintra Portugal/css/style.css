@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+
+*
+{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 800;
+}
+
+body
+{
+    background-color: gainsboro;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.nav-link
+{
+    color: black !important;
+}
+
+.popout
+{
+    transition: transform 2s;
+}
+
+.popout:hover
+{
+    transform: scale(1.1);
+}
+
+.navbar-nav, .collapse
+{
+    width: 80%;
+    float: right;
+}
+
+.sandybrown {background-color: sandybrown;}
+.bg-light {background-color: lightgray !important;}
+.h-135 {height: 135px;}
+.h-200 {height: 200px;}
+.h-250 {height: 250px;}
+.h-80 {height: 80px;}
+h1,h2,h3,h4,h5,h6 {font-weight: 800;}
+
+.home-header, .things-header, .blog-header, .booking-header
+{
+    min-height: 650px;
+    background: url("../images/home-header.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 0px;
+    position: relative;
+}
+
+.things-header
+{
+    background: url("../images/things-header.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.blog-header
+{
+    background: url("../images/blog-header.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+
+.booking-header
+{
+    background: url("../images/booking-header.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    position: static;
+}
+
+.normal
+{
+    font-weight: 400 !important;
+}
+
+.home-header-overlay1
+{
+    width: 100%;
+    min-height: inherit;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    text-align: center;
+    font-size: 22px;
+}
+
+.home-header-overlay
+{
+    width: 100%;
+    min-height: inherit;
+    background-color: rgba(246, 186, 6, 0.7);
+    color: white;
+    text-align: center;
+    font-size: 22px;
+}
+
+.searchbox
+{
+    font-weight: 400;
+    font-size: 18px;
+    background-image: url('../images/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 60px;    
+}
+
+.search-container
+{
+    background-color: rgba(238, 246, 6, 0.9);
+    position: absolute;
+    width: 90%;
+    bottom: -50px;
+    margin-left: 5%;
+}
+.review-name
+{
+    color: sandybrown;
+}
+label
+{
+    padding: 10px;
+}
+
+.search-container-booking
+{
+    background-color: rgba(246, 246, 246, 0.7);
+    width: 95%;
+    font-size: 16px;
+    color: black;
+}
+
+.search-container p
+{
+    border:5px solid black;
+}
+
+.hero-title
+{
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    font-size: 5vw;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: goldenrod;
+}
+
+.hero-title1-booking
+{
+    width: 80%;
+    font-size: 5vw;
+    -webkit-text-stroke-color: goldenrod;
+    margin: auto;
+}
+
+.hero-text
+{
+    width: 85%;
+    margin: auto;
+}
+
+.btn 
+{
+    background-color: black;
+    color: white;
+    font-size: 18px;
+}
+
+.btn:hover
+{
+    background-color: rgb(0,0,0,0.8);
+    color: whitesmoke;
+}
+
+.logo
+{
+    width: 90px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.nav-item
+{
+    display: flex;
+    align-items: flex-end;
+}
+
+.nav-link
+{
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
+a:link,a:active,a:visited
+{
+    color: black;
+    text-decoration: none;
+}
+
+.post-title
+{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.postdt
+{
+    position: absolute;
+    bottom: 5px;
+}
+
+.footer
+{
+    background: url("../images/footer.jpg");
+    min-height: 250px;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+.footer-overlay
+{
+    background-color: rgb(250,250,250,0.6);
+    width: 100%;
+    min-height: inherit;
+    font-size: 20px;
+    font-weight: 900 !important;
+}
+
+
+.input-group-text
+{
+    background-color: white;
+}
+.bi
+{
+    font-size: 3rem !important;
+}
+
+.social:link, .social:active, .social:visited
+{
+    color: black;
+    text-decoration: none;  
+    padding: 6px;
+}
+
+.footer-link:hover, .social:hover
+{
+    color:navy !important;
+}
+
+@media only screen and (max-width: 1070px)
+{
+    .search-container
+    {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-left: 0;
+    }  
+
+    .hero-title
+    {
+        font-size: 10vw;
+    }
+
+    .row 
+    {
+        width: 95%;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 758px)
+{
+    .h-135, .h-250, .h-200 
+    {height: auto;}
+    .navbar
+    {
+        background-color: sandybrown;
+        z-index: 1;
+    }
+}

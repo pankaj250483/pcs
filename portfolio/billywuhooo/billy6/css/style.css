@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/sofia-pro');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@font-face {
+  font-family: Druk;
+  src: url(../fonts/Druk-Wide-Bold.ttf);
+}
+
+@font-face {
+  font-family: GraphikMedium;
+  src: url(../fonts/GraphikMedium.otf);
+}
+
+.druck
+{
+  font-family: Druk;
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke: 2px rgba(0,0,0,0.7);
+}
+
+.solidred
+{
+  color: rgba(0,0,0,0.7);
+}
+
+.niceday
+{
+  font-family: GraphikMedium;  
+  font-weight: 500;
+  font-size: 18px;
+  color: #e94651;
+}
+
+.productdesign
+{
+  font-family: GraphikRegular;  
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(0,0,0,0.7);
+}
+
+.row
+{
+  --bs-gutter-x: 0rem;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+}
+*
+{
+    box-sizing: border-box;
+}
+
+i
+{
+    padding: 7px;
+    font-size: 20px;
+
+}
+.navbar
+{
+  width:55%;
+}
+nav, .navbar-brand
+{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.navbar-brand, .nav-item
+{
+    padding: 0px 20px;
+}
+
+.navbar-brand
+{
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.div2
+{
+	width: 0px;
+    min-height: 10px;
+	background: orange;
+    position: absolute;
+}
+
+.navbar-brand:hover .div2
+{
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+@keyframes example {
+  0% {width: 0;}
+  50% {width: 100%;}
+  100% {width: 0;}
+}
+
+.nav-link:after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+  }
+
+.nav-link:hover:after, .active:after {
+    width: 100%;
+    background: black;
+  }
+
+
+.container-box {
+    position: relative;
+    min-height: 65vh;
+    border: 3px solid white;
+
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+  }
+
+  .container-box:hover .overlay {
+    opacity: 1;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 70%;
+    left: 20%;
+  }
+
+  .hide
+  {
+      background: url('../images/f1.png');
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .BHAI
+  {
+      background: url('../images/about-2.JPG');
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .pocket
+  {
+      background: url('../images/Pocket.png');
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .alera
+  {
+    background: #000;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+
+  .SplitPay
+  {
+      background: url('../images/splitpay.png');
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .frame
+  {
+      background: url('../images/frame.png');
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .treehouse
+  {
+      background: url('../images/treehouse.png');
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .about
+  {
+    font-family: 'Sofia Pro', sans-serif;
+    font-weight: 300;
+    line-height: 2.0;
+  }
+
+  ol li.skip
+  {
+    list-style-type:none;
+    counter-increment:none;
+  }
+
+  #toc
+  {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 26px;
+    color: grey;
+    line-height: 3;
+  }
+
+  .mr-image
+  {
+    height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .mr-image ~ p
+  {
+    min-height: 70px;
+  }
+
+  .pros-cons
+  {
+    min-height:180px;
+    margin-bottom:15px;
+    text-align: left;
+  }
+
+  h5
+  {
+  font-size:18px;
+  line-height: 26px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: black;
+  }
+
+  .sofia
+  {
+    font-family: 'Sofia Pro', sans-serif;
+    color: grey;
+  }
+  .sofia-14
+  {
+  font-size:14px;
+  line-height:24px;
+  }
+  @media screen and (max-width: 700px)
+  {
+    .navbar
+    {
+      width:100%;
+    }
+    .niceday
+    {
+      padding-right: 50px;
+    }
+  }

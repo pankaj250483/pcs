@@ -1,0 +1,39 @@
+.nav-item, .nav-link
+{
+    width: 100%;
+    padding: 10px 25px;
+    font-size: 1rem;
+}
+
+.nav-link:hover
+{
+    background-color: #faf6f6;
+}
+
+.nav-link+hr
+{
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+
+.accordion-body
+{
+    padding: 0px;
+}
+
+.accordion-body>p
+{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 10px 25px;
+    background-color: rgb(209, 209, 209);
+    color: black;
+    font-weight: bold;
+}
+
+
+accordion-header, .accordion-item
+{
+    background-color: #FEFEFE;
+}

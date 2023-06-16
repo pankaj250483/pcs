@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <title>Columns</title>
+    <style>
+      .bi
+      {
+       font-size: 22px !important;
+      }
+      .form-group
+      {
+        margin-top: 20px;
+      }
+      label
+      {
+        margin-bottom: 10px;
+      }
+      #result-sucess, #result-fail 
+      {
+        display: none;
+      }
+      .bg-success
+      {
+        background-color: greenyellow !important;
+      }
+
+    </style>
+  </head>
+  <body>
+        <div class="container bg-primary text-white mb-3 position-sticky top-0">
+            <div class="row">
+                <div class="col-2 p-2 text-center">
+                       <a href="#"><button class="btn p-0"><i class="bi bi-arrow-left-circle-fill"></i></button></a> 
+                </div>
+                <div class="col-10 p-2 text-center">
+                   <h4 class="align-item-baseline text-center pt-1">Toolbar</h4>
+             </div>
+            </div>
+        </div>
+       
+        <div class="container" id="webform">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                  <form onsubmit="event.preventDefault();calculate();">
+                    <div class="form-group">
+                      <label for="employerage">Employer has age more 18?</label>
+                      <select class="form-select" aria-label="employerage" id="employerage" name="employerage">
+                        <option selected value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="lastsalary">Employee last salary <3000</label>
+                      <select class="form-select" aria-label="lastsalary" id="lastsalary" name="lastsalary">
+                        <option selected value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="workmonth">How many months want work? (1-12) <3000</label>
+                      <select class="form-select" aria-label="workmonth" id="workmonth" name="workmonth">
+                        <option selected value="1">1 month</option>
+                        <option value="2">2 months</option>
+                        <option value="3">3 months</option>
+                        <option value="4">4 months</option>
+                        <option value="5">5 months</option>
+                        <option value="6">6 months</option>
+                        <option value="7">7 months</option>
+                        <option value="8">8 months</option>
+                        <option value="9">9 months</option>
+                        <option value="10">10 months</option>
+                        <option value="11">11 months</option>
+                        <option value="12">12 months</option>
+                      </select>
+                    </div>
+                    <button class="btn btn-primary mt-4">CALCULAR PIS</button>
+                  </form>
+                  
+                </div>
+            </div>
+        </div>
+       
+        <div class="container" id="result-sucess">
+          <p class="mt-4 text-center h3">You will receive this:</p>
+          <p class="mt-4 bg-success p-3 h3 text-center rounded-pill">Value: <span id="amt"></span></p>
+        </div>
+        <div class="container" id="result-fail">
+          <p class="mt-4 text-center h3">!!! Sorry !!!</p>
+          <p class="mt-4 bg-danger text-white p-3 h3 text-center rounded-pill"> You are not eligible.</p>
+        </div>
+
+        
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+
+      function calculate()
+      {
+        if(employerage.value == "Yes" && lastsalary.value == "No")
+        {          
+          //use fixed values for 1-12 months.
+          data = [10000,20000,30000,40000,50000,60000,70000,80000,90000,100000,110000,120000];
+                  
+          var i=workmonth.selectedIndex;
+          var work=workmonth.options;
+          var amount=data[parseInt(work[i].index)];
+
+          amt.innerHTML= amount.toLocaleString();
+          document.getElementById("webform").style.display="none";
+          document.getElementById("result-sucess").style.display="block";
+
+        }
+        else
+        {
+          document.getElementById("webform").style.display="none";
+          document.getElementById("result-fail").style.display="block";
+        }
+      }
+
+
+    </script>
+  </body>
+</html>

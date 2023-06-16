@@ -1,0 +1,122 @@
+/* Importing Font family from google */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Quicksand&display=swap');
+
+/* CSS colour variables */
+:root 
+{
+    --blue: #7dc3ed;
+    --green: #78b82a;
+}
+
+*
+{
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--blue);
+    font-size: 20px;
+}
+
+.header
+{
+    background: var(--blue);
+    color: white;
+}
+
+.nav-link:hover, .active
+{
+    border-bottom: 2px solid var(--green);
+}
+
+.logo
+{
+    width: 150px;
+    height: 100px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Barlow', sans-serif;
+}
+
+h1
+{
+    font-weight: 600;
+}
+
+a:link, a:active, a:visited
+{
+    text-decoration: none;
+    color: black;
+}
+
+a.footer:hover
+{
+    text-decoration: underline;
+    color: grey;
+}
+
+/* social media icon style */
+ i
+{
+    font-size: 40px;
+    color: black;
+    padding: 5px;
+}
+
+/* social media icon hover colour change */
+i:hover
+{
+    color: grey;
+}
+
+/* product card hover class */
+.card:hover
+{
+    border: 1px solid var(--green);
+}
+
+/* Form Label style class */
+label
+{
+    margin: 0px;
+    display: block;
+    padding: 0px;
+    color: var(--blue);
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Form Input and Textarea style class */
+input, textarea
+{
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    border-radius: 5px;
+    padding: 2px;
+    width: 100%;
+}
+
+/* Form Teat area height class */
+textarea
+{
+    height: 150px;
+}
+
+/* Form Input hover and Focus style class */
+input:hover, input:focus
+{
+    border: 1px solid var(--green);
+}
+
+/* Form Checkbox class*/
+.check
+{
+    width: 20px;
+}
+
+/* Form bottom instruction class */
+.instruction
+{
+    font-size: 15px;
+    line-height: 1.2;
+}

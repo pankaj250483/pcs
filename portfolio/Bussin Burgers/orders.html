@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Burger </title>
+      <!-- Custom CSS -->
+      <link href="css/style.css" rel="stylesheet">
+      <!-- Adding font-awesome Icon Library -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <!-- NAVIGATION BAR -->
+      <nav class="navbar" id="navigationbar">
+         <a>BURGER QUEEN</a>
+         <a href="index.html">Home</a>
+         <a href="orders.html">Orders</a>
+         <a href="index.html#about">About</a>
+         <a href="index.html#contact">Contact</a>
+         <a href="javascript:void(0);" class="icon" onclick="responsive_menu()">
+         <i class="fa fa-bars"></i>
+         </a>
+      </nav>
+      <!-- slider -->
+      <div class="container">
+         <div class="Slides fade">
+            <img src="images/home-slider1.jpg">
+         </div>
+         <div class="Slides fade">
+            <img src="images/home-slider2.jpg">
+         </div>
+         <div class="Slides fade">
+            <img src="images/home-slider3.jpg">
+         </div>
+      </div>
+      <div style="text-align:center;background-color: brown;padding:15px;">
+         <span class="dot"></span> 
+         <span class="dot"></span> 
+         <span class="dot"></span> 
+      </div>
+      <div class="container table_container">
+         <h3>Dear Customer</h3>
+         <h1>Your Ourder is: </h1>
+         <table>
+            <tr>
+               <th>S.No.</th>
+               <th>Burger Item</th>
+               <th>Qty</th>
+               <th>Rate</th>
+               <th>Amount</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>
+                  <h1>Cheez Burger</h1>
+                  <br>Add Sauce : Yes, Texture : Regular, Temprature : Hot
+               </td>
+               <td>2 Nos.</td>
+               <td>£ 0.99</td>
+               <td>£ 1.98</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>
+                  <h1>Vegetable Burger</h1>
+                  <br>Add Sauce : No, Texture : Regular, Temprature : Frozen
+               </td>
+               <td>1 No.</td>
+               <td>£ 1.29</td>
+               <td>£ 1.29</td>
+            </tr>
+            <tr>
+               <td colspan="4">Total Order Amount</td>
+               <td>£ 3.27</td>
+            </tr>
+         </table>
+      </div>
+      <button class="collect">Click and Collect</button>
+      <!-- Footer Section -->
+      <div class="container" id="footer">
+         <p>All rights reserved Copyright 2022</p>
+      </div>
+      <!-- Javascript codes file -->
+      <script src="js/script.js"></script>
+   </body>
+</html>

@@ -1,0 +1,145 @@
+<html>
+<body>
+<!-- FORM CSS CODE-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');    
+*
+{
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.s-container
+{
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+input[type=text], textarea
+{
+    width:100%;
+    padding: 10px;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.s-row
+{
+    clear:both;
+    width:100%;
+    margin: 20px; 
+}
+
+.s-col-2
+{
+    float: left;
+    width:16.66%;
+    display: flex;
+    padding: 5px;
+}
+
+input[type=checkbox]
+{
+    margin-right: 5px;
+}
+
+button
+{
+    display: inline-block;
+    width: min(100%, 550px);
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#jsontext
+{
+    margin-top: 15px;
+    padding: 10px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 800px) 
+{
+    .s-container {width: 95%;}
+    .s-col-2 {width: 100%;}
+}
+
+</style>
+
+<!-- FORM HTML CODE-->
+<div class="s-container">
+    <input type="text" placeholder="Database Name (Leave empty to use link)" id="DatabaseName">
+    <textarea placeholder="User Ids (Numeric and one per line)" row=2 id="UserIds"></textarea>
+    <textarea placeholder="Targets (Username or hashtags including #)" row=2 id="Targets"></textarea>
+    <textarea placeholder="Blacklist (One user id per line)" row=2 id="Blacklist"></textarea>
+    <textarea placeholder="DM Text" row=2 id="DmText"></textarea>
+    <div class="s-row">
+        <div class="s-col-2">
+            <input type="checkbox" id="RandomDB">
+            Random DB (retarget users)
+        </div>
+        <div class="s-col-2">
+            <input type="checkbox" id="FilterPrivate">
+            Exclude Private
+        </div>
+        <div class="s-col-2">
+            <input type="checkbox" id="FilterNoAvatar">
+            Exclude No Avatar
+        </div>
+        <div class="s-col-2">
+            <input type="checkbox" id="FilterNoneEnglish">
+            Exclude Non-English
+        </div>
+        <div class="s-col-2">
+            <input type="checkbox" id="FilterMale">
+            Exclude Male
+        </div>
+        <div class="s-col-2">
+            <input type="checkbox" id="FilterFemale"> 
+            Exclude Female
+        </div>
+    </div>
+    <div class="s-row">
+
+    <button onclick="generatejson()"> Generate Json (Group Values)
+    </button>    
+    </div>
+    <div id="jsontext"></div>
+    
+</div>
+
+<!-- JAVASCRIPT FUNCTION GENERATING JSON-->
+<script>
+    function generatejson()
+    {
+
+        dataset = {};
+        dataset.DatabaseName = DatabaseName.value;
+        dataset.Targets = Targets.value;
+        dataset.UserIds = UserIds.value;
+        dataset.Blacklist = Blacklist.value;
+        dataset.DmText = DmText.value;
+        dataset.RandomDB = RandomDB.checked;
+
+        dataset.ScrapeFilters = {};
+        dataset.ScrapeFilters.FilterPrivate = FilterPrivate.checked;
+        dataset.ScrapeFilters.FilterNoAvatar = FilterNoAvatar.checked;
+        dataset.ScrapeFilters.FilterNoneEnglish = FilterNoneEnglish.checked;
+        dataset.ScrapeFilters.FilterMale = FilterMale.checked;
+        dataset.ScrapeFilters.FilterFemale = FilterFemale.checked;
+      
+        jsontext.innerHTML = JSON.stringify(dataset);
+
+
+    }
+</script>
+
+</body>
+</html>

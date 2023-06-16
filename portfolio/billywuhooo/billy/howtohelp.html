@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Current War Crisis in Yemen</title>
+<link rel="stylesheet" href="main.css">
+
+
+</head>
+<body>
+<ul class="navbar">
+    <li class="navitem"><a class="navlink" href="index.html">Home</a></li>
+    <li class="navitem"><a class="navlink" href="Aboutus.html">About us</a></li> 
+    <li class="navitem"><a class="navlink" href="theconflicted.html">The conflicted</a></li>
+    <li class="navitem"><a class="navlink" href="whatishappening.html">What is Happening</a></li> 
+    <li class="navitem"><a class="navlink active" href="howtohelp.html">How to Help</a></li> 
+ 
+  </ul>
+ 
+<div class="hero-image">
+    <div class="hero-text">
+        <a href="index.html">
+        <img class="logo" src="img/logo.png"></a>
+    </div>
+  </div>
+
+<div class="section">
+<div class="container">
+  <div class="col-50">
+  <img class="img-50" src="img/help2.jpg">
+  </div>
+  <div class="col-50">
+    <h1>Contact Us</h1>
+    <form action="#">
+    <input type="text" name="name" id="name" placeholder="Enter Your Name"><br>
+    <input type="text" name="city" id="city" placeholder="City"><br>  
+    <input type="text" name="city" id="mobile" placeholder="Mobile Number"><br>  
+    <button onclick="save()">Submit</button>
+  </form>
+    </div>
+</div>  
+
+<div class="container">
+  <hr>
+  <h1>How to help</h1>
+  <p>insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here. </p>
+  <p>insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here. </p> 
+  <p>insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here. </p>
+  <p>insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here.insert your text here. </p>
+
+</div>
+
+<div class="container" id="footer">
+  <hr>
+  Copyright &copy; 2021 Current War Crisis in Yemen. 
+ 
+</div>
+
+<script>
+  function save()
+  {
+    var name=document.getElementById("name").value;
+    var city=document.getElementById("city").value;
+    var mobile=document.getElementById("mobile").value;
+
+    document.getElementById("name").value="";
+    document.getElementById("city").value="";
+    document.getElementById("mobile").value="";
+    
+    alert("Dear User "+name+", Thanks for showing interest for Help. Our Team member will contact you soon on your phone number "+mobile);
+
+  }
+</script>
+
+</div>
+</body>
+</html>
+
+

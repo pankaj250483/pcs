@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*
+{
+    box-sizing: border-box;    
+}
+
+body
+{
+    background: black;
+    color: white;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul.left
+{
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    display: inline-block;
+    margin: auto;
+    float: left;
+}
+
+ul.right 
+{
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    display: inline-block;
+    margin: auto;
+    float: right;
+}
+
+
+li 
+{
+    float: left;
+}
+  
+li a 
+{
+    font-size: 13px;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+  
+li a:hover
+{
+    border-bottom: 2px solid grey;
+}
+ 
+
+.container
+{
+    clear:both;
+    padding: 5px;
+    text-align: center;
+}
+.front-img
+{
+    width:99%;
+    height:auto;
+    opacity: 0.3;
+    transition: width 1s, opacity 2s;
+}
+
+.fluid-img
+{
+    width:98%;
+    height:60%;
+    opacity: 0.3;
+    transition: width 1s, opacity 2s;   
+    display:block;
+    margin: auto; 
+}
+
+img:hover
+{
+    width: 100%;
+    opacity: 1; 
+}
+
+.col-half
+{
+    padding: 5px;
+    width:50%;
+    text-align:center;
+    float:left;
+}
+
+.col-side
+{
+    padding: 0;
+    width:25%;
+    text-align:center;
+    float:left;
+}
+
+.special
+{
+font-size: 16px;
+color: grey;  
+text-align: justify;
+padding: 120px;  
+line-height: 2.0;
+}
+
+.product-img
+{
+    width:50%;
+    float: right;
+    height:auto;
+    margin: 20px;
+    opacity: 0.9;
+    transition: width 1s, opacity 2s;
+}
+
+input, textarea
+{
+    margin-bottom: 20px;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    color: whitesmoke;
+    border:none;
+    background: none;
+    border-bottom: 2px solid red;
+
+}
+
+textarea
+{
+    height:200px;
+}

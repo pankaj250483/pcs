@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="icon" href="images/logo2.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+ <div class="bg-image">
+ </div>
+ <img src="images/man1.png" class="man1">
+ <img src="images/man2.png" class="man2">
+
+  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark m-0">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="images/logo2.png" class="logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center w-50">
+          <li class="nav-item ps-3 pe-3">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item ps-3 pe-3">
+            <a class="nav-link" href="#">About the project</a>
+          </li>
+          <li class="nav-item ps-3 pe-3">
+            <a class="nav-link" href="#">How to Play</a>
+          </li>
+          
+        </ul>
+        <form class="d-flex">
+          <button class="btn bgcolo p-2 m-4 ps-5 pe-5 rounded-pill">MAP</button>
+          <button onclick="document.location='https://discord.gg/rcHHzGAa'" class="btn bgcolo p-2 m-4 ps-5 pe-5 rounded-pill">Personal area</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+       <div class="col-lg-4">
+        <h1 class="p-3">Server News</h1>
+        <a href="#" class="news">news1 </a>
+        <a href="#" class="news">news1 </a>
+        <a href="#" class="news">news1 </a>
+        <button onclick="" class="btn bgcolo p-2 m-4 ps-4 pe-4 rounded-pill">Begin to Play</button>
+        <button onclick="" class="btn bgcolo p-2 m-4 ps-4 pe-4 rounded-pill">Play on Mac</button>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-4 bgdark text-light">
+          <h1 class="p-3">Server Info</h1>
+          <p>ꜱᴇʀᴠᴇʀ ɪᴘ: 188.40.166.151</p>
+          <p>Time when server will be open</p>
+          <p>Time remaning in start</p>
+         
+          <h1 id="demo"></h1>
+        </div>
+      </div>
+
+      <div class="container-social justify-content-around">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+     
+      <ul class="callouts special1">
+        <li class="callouts--bottom">Lorem Lorem Lorem Lorem Lorem Lorem</li>
+      </ul>
+      <ul class="callouts special2">
+        <li class="callouts--right">Lorem Lorem Lorem Lorem Lorem Lorem</li>
+      </ul>
+  
+      <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 20, 2022 15:37:25").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get today's date and time
+          var now = new Date().getTime();
+            
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+            
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+          // Output the result in an element with id="demo"
+          document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+            
+          // If the count down is over, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+        
+      </script>
+
+    </body>
+</html>

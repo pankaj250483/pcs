@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+*
+{
+    box-sizing: border-box;
+}
+
+
+body
+{
+    color: #2d2b31;
+    background: #f5f4f0;
+    font-family: 'Karla', sans-serif;
+}
+
+.container, .container-full
+{
+    max-width:1150px;
+    margin: auto;
+    clear: both;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container-full
+{
+    max-width: 100%;
+    width: 100%;
+    background-color: azure;
+
+}
+
+img:hover
+{
+    opacity: 0.8;
+    
+}
+
+
+.textcenter
+{
+    text-align: center;
+}
+
+.col-100
+{
+    width: 100%;
+}
+
+h4
+{
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 31px;
+}
+
+p, ul
+{
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 37px;
+}
+
+h1
+{
+    color: green;
+}
+
+.w100
+{
+    width: 100%;
+
+}
+
+
+.nav
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+.nav > a:link, 
+.nav > a:active, 
+.nav > a:hover, 
+.nav > a:visited 
+{
+    background-color: azure;
+    padding: 15px;
+    margin: 10px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  
+    .nav
+    {
+        display: block;
+        justify-content: center;
+    }
+    
+    .nav > a 
+    {
+        width: 100%;
+        display: block;
+    }
+    
+  }

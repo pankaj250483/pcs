@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root 
+{
+  --yellow: #f9e23f;
+}
+
+* 
+{
+  box-sizing: border-box !important;
+}
+
+body
+{
+  font-family: 'Bebas Neue', serif !important;
+  font-weight: 400 !important;
+  max-width: 1440px;
+  margin: auto;
+  background-color: black;
+}
+
+.bg-dark
+{
+  background-color: black !important;
+}
+
+.text-warning
+{
+  color: var(--yellow) !important;
+}
+
+.btn-yellow
+{
+  background-color: var(--yellow) !important; 
+}
+
+.logo
+{
+  width: 50px;
+  height: 50px;
+}
+
+.active 
+{
+  color: var(--yellow) !important;
+}
+
+.intro 
+{
+  background-image: url(../images/photo\ acueil-01.png);
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 700px;
+  position: relative !important;
+}
+
+.intro2
+{
+  background-image: url(../images/choisis\ niveaux.jpg);    
+}
+
+.intro3
+{
+  background-image: url(../images/shape/shape_informations-01.png);
+  background-size: 100% min(100%,2800px);    
+}
+
+.intro4
+{
+  background-image: url(../images/shape/shape_inscription\ \(2\).png);
+  background-size: 100% min(100%,2800px);    
+}
+
+.bg-none
+{
+  background-image: none;
+  min-height: 800px !important;    
+}
+
+.box-blank
+{
+  color: transparent;
+  border: 2px solid var(--yellow);
+  display: inline;
+}
+
+.cours
+{
+  background-image: url(../images/background2.jpg);
+  background-size: 100%;
+  background-position: center top;
+  background-repeat: repeat-y;
+  min-height: 700px;
+}
+
+.intro-img4
+{
+  background-image: url(../images/jason-leung-BA-td4vl-5A-unsplash.jpeg);
+}
+
+.intro-img5
+{
+  background-image: url(../images/shape/shape_inscription\ \(1\).png);
+  background-size: 100% 115%;
+  background-position: center center;
+}
+
+.intro-img6
+{
+  background-image: url(../images/kimson-doan-AZMmUy2qL6A-unsplash.jpeg);
+  background-size: 100% 115%;
+}
+
+.intro-text 
+{
+  position: absolute !important;
+  left: 30%;
+  bottom: 12%;
+}
+
+h1
+{
+  font-size: 8vw !important;
+}
+
+h3
+{
+  font-size: 3vw !important;
+}
+
+.intro-text h1, .intro-text h3
+{
+  line-height: 0.65!important;
+}
+
+main 
+{
+  background-image: url(../images/shape/shape_aceuil-01.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 1200px;
+}
+
+.h1
+{
+  font-size: 70px !important;
+}
+
+.h-200
+{
+  height: 300px !important;
+  border: 2px solid transparent;
+}
+
+.h-200:hover
+{
+  border: 2px solid var(--yellow) !important;;
+}
+
+.bg-yellow 
+{
+  background-color: var(--yellow) !important;;
+  min-height: 250px;
+  margin-top: -1% !important;
+}
+
+.bdr-left
+{
+  border-left: 5px solid var(--yellow) !important;
+}
+.bdr-left-white-1
+{
+  border-left: 3px solid;
+  border-image: linear-gradient(to bottom,  black 40%,grey 60%, white 100%) 5;
+}
+
+.bdr-left-white-2
+{
+  border-left: 3px solid white;
+}
+
+.card-heading
+{
+  color: white;
+  text-align: center !important;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card-link:link, .card-link:active, .card-link:visited 
+{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--yellow);
+  padding: 5px 30px;
+}
+
+.card-link:hover
+{
+  background-color: goldenrod;
+}
+
+.bdr-bottom-white
+{
+  border-bottom: 3px solid white !important;
+}
+
+
+.btn-outline-dark:link, .btn-outline-dark:active, .btn-outline-dark:visited, .btn-outline-dark.hover
+{
+  font-size: 24px !important;
+}
+
+p,
+li:not(.nav-item)
+{
+    font-family: 'Arial', serif !important;
+    font-size: 12px;
+    line-height: 1.2 !important;
+}
+
+ul 
+{
+list-style-type: none;
+}
+
+.bg-yellow p 
+{
+  font-size: 12px;
+  color: black;
+  text-align: start;
+  font-weight: 600;
+  font-family: "Arimo", sans-serif;
+}
+
+.bdr-yellow
+{
+  border: 2px solid var(--yellow);
+}
+
+.h-300
+{
+  height: 400px !important;
+}
+
+.stage-h3
+{
+  color: var(--yellow);
+  font-size: 20px !important;
+}
+
+.hr-white
+{
+  height:2px;
+  border-width:0;
+  color:gray;
+  background-color:white;
+  opacity: 1;
+  margin-bottom: 70px !important;
+}
+
+
+
+.spacer 
+{
+  background-image: url(../images/shape/shape_aceuil02-01.png);
+  background-size: 100% 140%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+}
+
+.spacer-fix
+{
+  background-image: url(../images/shape/shape_stage-01.png);
+  background-size: 100% 100%;
+  min-height: 1200px !important;
+}
+
+footer ul 
+{
+  list-style-type: none;
+}
+
+.socials 
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 3%;
+  height: 80px;
+}
+
+.socials img 
+{
+  width: 20px;
+  height: 20px;
+}
+
+.stage-item-1, .stage-item-2
+{
+  background-image: url(../images/malachi-brooks-bnb-qWoygvI-unsplash.jpg);
+  background-size: 100% 100%;
+  background-position: center center;
+  height: 400px;
+  border: 2px solid var(--yellow);
+}
+
+.stage-item-2
+{
+  background-image: url(../images/patrick-hendry-z1GkShBBJX4-unsplash.jpg);
+  background-size: 100% 100%;  
+  background-position: center center;
+}
+
+input, textarea
+{
+  background-color: black;  
+  color: white;
+  border: 1px solid var(--yellow);
+  width: 100%;
+  padding: 10px;
+}
+
+textarea
+{
+  height: 250px;
+}
+
+.nos-img
+{
+  min-height: 450px !important;
+  background-image: url(../images/tommy-lisbin-CJpzC8me-NA-unsplash.jpg);
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+}
+
+.o-fit-1, .o-fit-2
+{
+  min-height: 350px !important;
+  background-image: url(../images/2caceae435accc9fc15a10fedb78c025.jpg);
+  background-size: 100% auto;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+}
+
+.o-fit-2
+{
+  background-image: url(../images/1554a7be61ca33020e247da5baf2e329.jpg);
+  background-position: center top;
+}
+
+
+/* ************************
+*
+*  MEDIA QUERY FOR RESPONSIVE 
+*
+*
+************************ */
+
+
+@media only screen and (max-width: 700px) 
+{
+  .intro, .spacer
+  {
+    min-height: 350px;
+  }
+  .socials
+  {
+    flex-direction: row;
+  }
+  
+  main 
+  {
+  background-image: url(../images/shape/shape_aceuil-01.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  min-height: 1200px;
+  }
+
+  .h1
+  {
+    text-align: center !important;
+    color: white;
+  }
+
+  h3
+  {
+  font-size: 6vw !important;
+  }
+ 
+  .intro3
+  {
+  background-image: url(../images/shape/shape_informations-01.png);
+  background-size: 100% 1000px;    
+  }
+
+  .bg-none
+  {
+  min-height: 300px !important;  
+  }
+
+  .intro
+  {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+}
