@@ -145,3 +145,8 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
     border-radius: 50%;
     display: inline-block;
 }
+
+.nav-link:link, .nav-link:active, .nav-link:hover, .nav-link:visited
+{
+    font-size: 14px !important;
+}
