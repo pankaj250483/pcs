@@ -53,19 +53,19 @@ li
     color: var(--blue);
 }
 
-.parallex, .parallex1
+.parallex, .parallex1, .parallex2
 {
     background: url("images/header-1.jpg");
     min-height: 80vh;
     background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .parallex1
 {
     background: url("images/robot.jpg");
 }
-
 
 .brain-text
 {
@@ -119,7 +119,8 @@ li
 
 .h-fix
 {
-    max-height: 400px;
+    min-height: 400px !important;
+    max-height: 400px !important;
 }
 
 
