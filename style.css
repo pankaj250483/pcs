@@ -30,7 +30,7 @@ i
     padding: 10px;
 }
 
-.social:link .social:active, .social:visited
+.social:link, .social:active, .social:visited
 {
     color: white !important;
 }
@@ -67,6 +67,7 @@ li
 .parallex1
 {
     background: url("images/robot.jpg");
+    background-attachment: fixed;
 }
 
 .brain-text
