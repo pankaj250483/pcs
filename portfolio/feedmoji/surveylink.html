@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <!-- Custom CSS-->
+      <link href="css/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+      <title>Feedmoji</title>
+   </head>
+   <body>
+
+    <div class="container-fluid header">
+        <div class="row p-4">
+            <div class="col-9">
+               <a href="index.html" class="title"><h1>Feedmoji</h1></a>
+            </div>
+            <div class="col-3 d-flex justify-content-end">
+                <button class="btn"><i class="bi bi-box-arrow-right"></i></button>
+            </div>
+        </div>
+        
+    </div>
+    
+    <hr>
+
+    <div class="container">
+        <form class="was-validated" action="#">
+        <div class="row ps-4 pe-4 pb-2">
+            <div class="col-md-12 form-group">
+                <h1>Add a store</h1>
+                <label for="store" class="mb-3">Name of the store</label>
+                <input type="text" class="form-control mb-3 p-2" id="store" aria-describedby="store" placeholder="Store name" minlength="4">
+                <label for="uniqueid" class="mb-3" >Unique ID</label>
+                <input type="text" class="form-control mb-3 p-2" id="uniqueid" aria-describedby="uniqueid" placeholder="Unique Id" minlength="4">
+                <label for="email" class="mb-3">Email</label>
+                <input type="email" class="form-control mb-3 p-2" id="email" aria-describedby="email" placeholder="Your email">
+                <label for="password" class="mb-3" >Password</label>
+                <input type="password" class="form-control mb-3 p-2" id="password" aria-describedby="password" placeholder="Your Password" minlength="4">
+                <input type="Submit" class="btn btn-primary mt-3 ps-5 pe-5" value="Submit">
+                <button class="btn mt-3 ps-5 pe-5 text-secondary">Cancel</button>
+            </div>
+        </div>
+        </form>
+        <div class="row p-4 pt-0">
+            <div class="col-md-12">
+            <h1>Survey Link</h1>
+            </div>
+        </div>
+        <div class="row p-5 pt-0">
+            <div class="col-md-12 d-flex justify-content-around border border-1 border-primary rounded p-0">
+            <button class="btn nofocus"><i class="bi bi-check text-success f20"></i></button>    
+            <span id="copylink" class="text-success p-2 f20">www.feedmoji.com/012893</span>
+            <button class="btn nofocus" onclick="CopyToClipboard('copylink')"><i class="bi bi-clipboard"></i></button>    
+            </div>
+        </div>
+            
+          </div>
+
+    </div>
+    
+
+          <!-- Option 1: Bootstrap Bundle with Popper -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    
+    <script>
+            function CopyToClipboard(containerid) {
+            if (document.selection) {
+                var range = document.body.createTextRange();
+                range.moveToElementText(document.getElementById(containerid));
+                range.select().createTextRange();
+                document.execCommand("copy");
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(document.getElementById(containerid));
+                window.getSelection().addRange(range);
+                document.execCommand("copy");
+                alert("Text has been copied on clipboard.")
+            }
+            }
+
+    </script>
+    
+    
+    
+    </body>
+</html>

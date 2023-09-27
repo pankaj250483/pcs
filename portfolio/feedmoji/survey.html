@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <!-- Custom CSS-->
+      <link href="css/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+      <!-- Jquery CDN -->
+
+      <title>Feedmoji - Survey</title>
+
+   </head>
+   <body>
+
+    <div class="container mt-5 p-5">
+        <div class="row pt-5">
+            <div class="col">
+               <a href="http://www.feedmoji.com" class="title pb-0 mb-0"><h1 class="pb-0 mb-0">Feedmoji</h1></a>
+               <span class="p-0 mt-0 line text-primary">Feedback made easy</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container p-5 pt-0 pb-0">
+
+    <h4 class="mb-5"><span id="q1"></span><span class="text-danger">*</span></h4>    
+    <h5 class="text-secondary">Please choose one from the below options</h5>
+
+    <div class="row text-center">
+        <div class="col p-1">
+            <button class="btn btn-outline-primary" id="b1" onclick="rating(this)">
+                <img src="images/1.png" class="w-100 ">
+            </button>
+            <p class="caption">Very Unhappy</p>
+        </div>
+        <div class="col p-1">
+            <button class="btn btn-outline-primary" id="b2" onclick="rating(this)">
+                <img src="images/2.png" class="w-100">
+            </button>
+            <p class="caption">Unhappy</p>
+        </div>
+        <div class="col p-1">
+            <button class="btn btn-outline-primary" id="b3" onclick="rating(this)">
+                <img src="images/3.png" class="w-100">
+            </button>
+            <p class="caption">Neutral</p>
+        </div>
+        <div class="col p-1">
+            <button class="btn btn-outline-primary" id="b4" onclick="rating(this)">
+                <img src="images/4.png" class="w-100">
+            </button>
+            <p class="caption">Happy</p>
+        </div>
+        <div class="col p-1">
+            <button class="btn btn-outline-primary" id="b5" onclick="rating(this)">
+                <img src="images/5.png" class="w-100">
+            </button>
+            <p class="caption">Very Happy</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="container p-5 pt-2">
+        <form method="post" action="survey-thanks.php">
+        <h5 id="q2"></h5>
+        <input type="hidden" id="rate" name="rate" min="1" max="5" value="1" class="w-100">
+        <textarea class="w-100 p-2" rows="7" id="feedback" name="feedback" placeholder="Type your feedback here..." required></textarea>
+        <button type="Submit" class="btn btn-primary mt-3 ps-5 pe-5" id="submit"> Submit <div class="spinner-border spinner-border-sm"  id="spinner" role="status"></div></button>
+        <input type="reset" class="btn mt-3 ps-5 pe-5 text-secondary" value="Cancel">
+        </form>
+
+    </div>
+
+    <script>
+        q=["How happy are you with the services we have provided today?","Anything that can be Improved?","Is there something you specifically liked?"];   
+        q1.innerHTML=q[0];
+        q2.innerHTML=q[1];
+
+        function rating(x)
+        {
+           r=parseInt(x.id[1]); 
+           rate.value=r;
+           if (r<4)
+           {
+            q2.innerHTML=q[1];
+           } 
+           else
+           {
+            q2.innerHTML=q[2];
+           }
+        }
+    </script>
+
+          <!-- Option 1: Bootstrap Bundle with Popper -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>        
+    </body>
+</html>
