@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pankaj Computers</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/pcs.png">
+    <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>  
+</head>
+<body oncontextmenu="return false;" class="noselect">
+
+     <!-- HEADER -->
+     <include src="header.html"></include> 
+      
+      <!-- <div class="container-fluid parallex"> -->
+
+      </div>
+
+      <div class="container-fluid p-2 bg-blue">
+        <div class="row justify-content-around text-center">
+          <div class="col-md-10 p-5">
+            <p class="brain-text">Terms & Conditionsy</p> 
+            <p>These terms and conditions govern your use of the Pankaj Computers website and services. By using our website and services, you agree to these terms and conditions.</p>
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid p-5 ">
+        <div class="row justify-content-around text-start">
+            <div class="col-md-9 bg-dark p-5">
+              <h4 class="text-center text-warning">Use of Our Services</h4>
+              <p>You may use our services only for lawful purposes. You may not use our services to:</p>   
+                <p>Transmit any illegal, harmful, or offensive content.</br>
+                Interfere with the operation of our website or services.</br>
+                Collect personal information from other users.</br>
+                Impersonate another person or entity.</p>
+
+                <h4 class="text-center text-warning">Intellectual Property</h4>
+                <p>The content on our website, including text, graphics, and software, is protected by copyright and other intellectual property laws. You may not copy, distribute, or modify our content without our permission.</p>
+                
+                <h4 class="text-center text-warning">Disclaimer</h4>
+                
+                <p>We provide our services "as is" and without any warranty. We are not responsible for any damages that may arise from your use of our services.</p>
+                
+                <h4 class="text-center text-warning">Limitation of Liability</h4>
+                
+                <p>Our liability for any damages arising from your use of our services is limited to the amount you paid for our services.</p>
+                
+                <h4 class="text-center text-warning">Governing Law</h4>
+                
+                <p>These terms and conditions are governed by the laws of India.</p>
+                
+                <h4 class="text-center text-warning">Contact Us</h4>
+                
+                <p>If you have any questions about these terms and conditions, please contact us at pankajcomputersaph@gmail.com</p>
+                
+                
+
+
+                
+            </div>
+
+        </div>
+      </div>
+
+
+  <!-- footer -->
+  <include src="footer.html"></include> 
+      
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      //Initiate Animation AOS Object
+      AOS.init();
+  
+      //JS Codes for include nav and footer html files
+      let includes = document.getElementsByTagName('include');                
+      for (var i = 0; i < includes.length; i++) {
+      let include = includes[i];
+      load_file(includes[i].attributes.src.value, function(text) 
+      {
+          include.insertAdjacentHTML('afterend', text);
+          include.remove();
+      });
+      }
+      function load_file(filename, callback) {
+      fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+  </script>
+  </body>
+</html>

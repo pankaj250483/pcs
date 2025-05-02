@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pankaj Computers</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/pcs.png">
+    <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>  
+</head>
+<body oncontextmenu="return false;" class="noselect">
+
+     <!-- HEADER -->
+     <include src="header.html"></include> 
+      
+      <!-- <div class="container-fluid parallex"> -->
+
+      </div>
+
+      <div class="container-fluid p-2 bg-blue">
+        <div class="row justify-content-around text-center">
+          <div class="col-md-10 p-5">
+            <p class="brain-text">Privacy Policy</p> 
+            <p>Pankaj Computers is committed to protecting the privacy of its users. This privacy policy explains how we collect, use, and share your personal information.</p>
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid p-5 ">
+        <div class="row justify-content-around text-start">
+            <div class="col-md-9 bg-dark p-5">
+              <h4 class="text-center text-warning">Information We Collect</h4>
+              <p>We collect the following types of personal information:</p>
+              <p>Contact information, such as your name, email address, and phone number.<br>
+                Demographic information, such as your age, gender, and location.<br>
+                Technical information, such as your IP address, browser type, and operating system.<br>
+                Usage information, such as the pages you visit on our website and the courses you take.</p>
+
+                <h4 class="text-center text-warning">How We Use Your Information</h4>
+                <p>We use your personal information for the following purposes:</p>
+                <p>To provide you with our services, such as courses and training materials.<br>
+                To communicate with you about our services and promotions.<br>
+                To personalize your experience on our website.<br>
+                To improve our services.<br>
+                To comply with applicable laws and regulations.</p>
+
+                <h4 class="text-center text-warning">Sharing Your Information</h4>
+                <p>We may share your personal information with the following third parties:</br>
+                Service providers who help us operate our website and provide our services.</br>
+                Business partners who offer products or services that may be of interest to you.</br>
+                Government agencies as required by law.</p>
+                
+                <h4 class="text-center text-warning">Your Rights</h4>
+                <p>You have the following rights regarding your personal information:</br>
+                You have the right to access your personal information.</br>
+                You have the right to correct your personal information.</br>
+                You have the right to delete your personal information.</br>
+                You have the right to object to the processing of your personal information.</br>
+                You have the right to withdraw your consent to the processing of your personal information.</p>
+                
+                <h4 class="text-center text-warning">Contact Us</h4>
+                <p>If you have any questions about this privacy policy, please contact us at pankajcomputersaph@gmail.com </p>
+            </div>
+
+        </div>
+      </div>
+
+
+  <!-- footer -->
+  <include src="footer.html"></include> 
+      
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      //Initiate Animation AOS Object
+      AOS.init();
+  
+      //JS Codes for include nav and footer html files
+      let includes = document.getElementsByTagName('include');                
+      for (var i = 0; i < includes.length; i++) {
+      let include = includes[i];
+      load_file(includes[i].attributes.src.value, function(text) 
+      {
+          include.insertAdjacentHTML('afterend', text);
+          include.remove();
+      });
+      }
+      function load_file(filename, callback) {
+      fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+  </script>
+  </body>
+</html>

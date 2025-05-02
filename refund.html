@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pankaj Computers</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/pcs.png">
+    <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>  
+</head>
+<body oncontextmenu="return false;" class="noselect">
+
+     <!-- HEADER -->
+     <include src="header.html"></include> 
+      
+      <!-- <div class="container-fluid parallex"> -->
+
+      </div>
+
+      <div class="container-fluid p-2 bg-blue">
+        <div class="row justify-content-around text-center">
+          <div class="col-md-10 p-5">
+            <p class="brain-text">Refund and Cancellation Policy</p> 
+            <p>At Pankaj Computers, we understand that sometimes circumstances change. We strive to be fair and transparent with our refund and cancellation policies. Please read the following carefully.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid p-5 ">
+        <div class="row justify-content-around text-start">
+            <div class="col-md-9 bg-dark p-5">
+            <h4 class="text-center text-warning">Course Enrollment Cancellation and Refunds:</h4>
+            <p><b>Cancellation Before Course Commencement:</b> If you decide to cancel your enrollment in a course before the scheduled start date, you will receive a full refund of the course fees paid. Please notify us of your cancellation in writing (email is acceptable) at pankajcomputersaph@gmail.com at least 3 business days before the course begins.</p>
+
+            <h4 class="text-center text-warning">Cancellation After Course Commencement:</h4>
+            <p>For cancellations made within 2 days of the course start date, you may be eligible for a partial refund of 75% of the course fees, provided you have attended no more than 1 session.</p>
+            <p>No refunds will be issued for cancellations made after 2 days from the course start date or if you have attended more than 1 session.</p>
+       
+            <h4 class="text-center text-warning">Course Postponement by Pankaj Computers:</h4>
+            <p>If Pankaj Computers postpones a course, you will have the option to either: Enroll in the rescheduled course at no additional cost.
+                Receive a full refund of the course fees paid.</p>
+
+            <h4 class="text-center text-warning">Course Cancellation by Pankaj Computers:</h4>
+            <p>If Pankaj Computers cancels a course, you will receive a full refund of the course fees paid.</p>
+
+
+            <h4 class="text-center text-warning">Other Services (e.g., Web Development, Office Admin, Translation, Visa Services):</h4>
+
+            <p>Cancellation policies for Web Development, Office Admin Services, Translation, Visa Services etc. may vary. Please refer to the specific terms and conditions outlined for each individual event. Generally, cancellations  prior to the service start may be eligible for a full or partial refund.</p>
+
+            <h4 class="text-center text-warning">No Refunds Will Be Issued For:</h4>
+            <p>Non-attendance without prior notification.<br>
+            Dissatisfaction with the course content/service after a significant portion of the course has been completed (beyond the initial cancellation window) <br>
+            Failure to meet the prerequisites for a course<br>
+            Technical issues on the student's end (e.g., internet connectivity problems, software incompatibility) that prevent participation. We will, however, offer reasonable technical support to help resolve such issues.</br>
+            
+            How to Request a Cancellation and Refund:
+
+            <p>To request a cancellation and refund, please follow these steps:</p>
+
+            <p>Send a written request via official email.<br>
+            Clearly state your name, the name of the course or service you are cancelling, and the reason for cancellation.<br>
+            Include your enrollment details or receipt number.<br>
+            Refunds will be processed within 7-10 business days of receiving your valid cancellation request and will be issued using the original method of payment, where possible.</p>
+
+            <h4 class="text-center text-warning">Contact Us:</h4>
+
+            <p>If you have any questions regarding our Refund and Cancellation Policy, please feel free to contact us at:</p>
+            <p>Tel : +191-1498-294289</p>    
+            <p>Email : pankajcomputersaph@gmail.com</p>        
+            <p>Physical Address : Pankaj Computers & Photostate, Opp. Tehsil, Bikaner Road, Anupgarh-335701, Raj. India</p>
+
+            </div>
+
+        </div>
+      </div>
+
+
+  <!-- footer -->
+  <include src="footer.html"></include> 
+      
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      //Initiate Animation AOS Object
+      AOS.init();
+  
+      //JS Codes for include nav and footer html files
+      let includes = document.getElementsByTagName('include');                
+      for (var i = 0; i < includes.length; i++) {
+      let include = includes[i];
+      load_file(includes[i].attributes.src.value, function(text) 
+      {
+          include.insertAdjacentHTML('afterend', text);
+          include.remove();
+      });
+      }
+      function load_file(filename, callback) {
+      fetch(filename).then(response => response.text()).then(text => callback(text));
+      }
+  </script>
+  </body>
+</html>
