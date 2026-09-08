@@ -32,7 +32,7 @@ i
 
 .social:link, .social:active, .social:visited
 {
-    color: white !important;
+    color: #1E5681 !important;
 }
 
 .social:hover
@@ -159,4 +159,15 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 .nav-link:link, .nav-link:active, .nav-link:hover, .nav-link:visited
 {
     font-size: 14px !important;
+    color: #000000 !important;
 }
+.col-md-4 img.w-100 {
+      margin: 15px;
+      border-radius: 5%;
+      width: calc(100% - 30px) !important;}
+       
+.col-md-4.bg-dark {
+      background-color: #1E5681 !important;
+      color: #ffff !important;
+    }
+

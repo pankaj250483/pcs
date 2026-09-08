@@ -9,19 +9,44 @@
   <link rel="icon" type="image/x-icon" href="images/pcs.png">
   <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>
   <style>
-    .d-block
-    {
+    .d-block {
       margin-bottom: 25px !important;
       display: block;
       height: 250px !important;
     }
+
+    body {
+      background-color: #ffff !important;
+    }
+
+    .col-md-4.bg-dark,
+    .col-md-5.bg-dark {
+      background-color: #1E5681 !important;
+      color: #000000 !important;
+    }
+
+    .col-md-4.bg-dark h3,
+    .col-md-4.bg-dark p,
+    .col-md-4.bg-dark span,
+    .col-md-5.bg-dark h3,
+    .col-md-5.bg-dark p,
+    .col-md-5.bg-dark span {
+      color: white !important;
+    }
+
+    .col-md-4 img.w-100 {
+      margin: 15px;
+      border-radius: 5%;
+      width: calc(100% - 30px) !important;
+    }
+    b
   </style>
 </head>
 
 <body oncontextmenu="return false;" class="noselect">
 
-    <!-- HEADER -->
-    <include src="header.html"></include> 
+  <!-- HEADER -->
+  <include src="header.html"></include>
 
 
   <!-- <div class="container-fluid parallex"> -->
@@ -61,48 +86,25 @@
       </div>
     </div>
   </div>
-    <div class="container-fluid text-center py-2 bg-blue sticky-top">
+  <div class="container-fluid text-center py-2 bg-blue sticky-top">
 
-          <a href="#html" class="btn btn-warning m-2">HTML WEBSITE & WEB APP</a>
-          <a href="#ui" class="btn btn-warning m-2">UI DESIGN for APPs</a>
-          <a href="#wordpress" class="btn btn-warning m-2">WORDPRESS WEBSITE</a>
-          <a href="#wix" class="btn btn-warning m-2">WIX WEBSITE</a>
-        </div>
+    <a href="#html" class="btn btn-light m-2">HTML WEBSITE & WEB APP</a>
+    <a href="#wordpress" class="btn btn-light m-2">WORDPRESS WEBSITE</a>
+    <a href="#wix" class="btn btn-light m-2">WIX WEBSITE</a>
+    <a href="#ui" class="btn btn-light m-2">UI DESIGN for APPs</a>
+  </div>
   <div class="container-fluid p-5 text-center">
 
     <div class="row justify-content-around g-5">
       <div class="col-md-12 text-light p-5 text-center" id="html">
-        <h3>HTML CSS WEBSITE & WEB APP</h3>
-        <h6 class="text-information">Custom Website (Code Base)</h6>
+        <h3 style="color: #000000;">HTML CSS WEBSITE & WEB APP</h3>
+        <h6 class="text-information" style="color: #000000;">Custom Website (Code Base)</h6>
       </div>
     </div>
 
     <div class="row justify-content-around g-5">
 
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://www.maximalsecurityservices.com" target="_blank">
-          <img src="images/maximalsecurity.png" class="w-100 m-auto d-block">
-          <h3 class="text-center text-warning">maximalsecurityservices</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap/js/Node.Js & Hosted On Firebase| USA</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://www.tispd.com" target="_blank">
-          <img src="images/tispd.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">Tispd.com</h3>
-        </a>
-        <p>HTML, CSS, Bootstrap, Node.js Website | Delhi, India</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://i-gpt.org/" target="_blank">
-          <img src="images/igpt.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">I-GPT.ORG</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap Custom Website | India</p>
-      </div>
-
+  
       <div class="col-md-5 bg-dark p-1">
         <a href="https://www.temptationcapital.com" target="_blank">
           <img src="images/temptationcapital.png" class="w-100 m-auto d-block">
@@ -136,14 +138,6 @@
       </div>
 
       <div class="col-md-5 bg-dark p-1">
-        <a href="https://www.filmhairstylist.com" target="_blank">
-          <img src="images/filmhairstylist.png" class="w-100 m-auto d-block">
-          <h3 class="text-center text-warning">www.filmhairstylist.com</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap Custom Website | USA</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
         <a href="https://kbcutecoder.github.io/D365Licenses.com/#" target="_blank">
           <img src="images/D365 Licensecom.png" class="w-100 m-auto d-block">
           <h3 class="text-center text-warning">D365Licenses.com</h3>
@@ -157,14 +151,6 @@
           <h3 class="text-center text-warning">gujjubhaimortgageguy.com/</h3>
         </a>
         <p>HTML/CSS/Bootstrap Custom Website| CANADA</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://apniitr.com/" target="_blank">
-          <img src="images/apniitr.png" class="w-100 m-auto d-block">
-          <h3 class="text-center text-warning">Apni ITR</h3>
-        </a>
-        <p>HTML/CSS/PHP Website| USA</p>
       </div>
 
       <div class="col-md-5 bg-dark p-1">
@@ -207,29 +193,12 @@
         <p>React.JS, Node.JS, Firebase Real Time Db | USA</p>
       </div>
 
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://www.secondsinaday.com" target="_blank">
-          <img src="images/secondsinaday.png" class="w-100 m-auto d-block">
-          <h3 class="text-center text-warning">www.secondsinaday.com</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap/JS/MySQL/PHP Web APP | UK</p>
-      </div>
-
       <div class="col-md-5 bg-dark p-1">
         <a href="http://www.securitycamerainstallationlongisland.com/" target="_blank">
           <img src="images/security camra.png" class="w-100 m-auto d-block">
           <h3 class="text-center text-warning">ALPHA|Computer Group|Security Camera</h3>
         </a>
         <p>HTML/CSS Website | USA</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="http://www.goldenhillhealthcare.co.uk"_blank">
-          <img src="images/goldenhillhealthcare.png" class="w-100 m-auto d-block">
-          <h3 class="text-center text-warning">www.goldenhillhealthcare.co.uk</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap/JS/PHP Website | UK</p>
       </div>
 
       <div class="col-md-5 bg-dark p-1">
@@ -282,14 +251,6 @@
       </div>
 
       <div class="col-md-5 bg-dark p-1">
-        <a href="https://smithtransportationandlogistics.com" target="_blank">
-          <img src="images/smith.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">www.smithtransportationandlogistics.com</h3>
-        </a>
-        <p>HTML/CSS Website | USA</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
         <a href="portfolio/BCG 1960/index.html" target="_blank">
           <img src="images/BCG1960.png" class="w-100 m-auto d-block" style="height:250px;">
           <h3 class="text-center text-warning">Boxing Club Genevois</h3>
@@ -297,7 +258,7 @@
         <p>HTML/CSS Website - Custom Design | Switzerland</p>
       </div>
 
-        <div class="col-md-5 bg-dark p-1">
+      <div class="col-md-5 bg-dark p-1">
         <a href="portfolio/Geneva Rocks/index.html" target="_blank">
           <img src="images/geneva.png" class="w-100 m-auto d-block" style="height:250px;">
           <h3 class="text-center text-warning">Geneva Rocks</h3>
@@ -327,14 +288,6 @@
           <h3 class="text-center text-warning">ATL SMOKER</h3>
         </a>
         <p>HTML/CSS Website | Atlanta</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://bookjee.com/" target="_blank">
-          <img src="images/bookjee.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">www.bookjee.com</h3>
-        </a>
-        <p>HTML/CSS Website | INDIA</p>
       </div>
 
       <div class="col-md-5 bg-dark p-1">
@@ -378,14 +331,6 @@
       </div>
 
       <div class="col-md-5 bg-dark p-1">
-        <a href="https://juliet.aiboosters.co.uk" target="_blank">
-          <img src="images/aibooster.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">AI Booster</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap/Django  | USA </p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
         <a href="portfolio/sam/index.html" target="_blank">
           <img src="images/resume-sam.png" class="w-100 m-auto d-block" style="height:250px;">
           <h3 class="text-center text-warning">RESUME SAM</h3>
@@ -407,23 +352,7 @@
           <h3 class="text-center text-warning">The Cataloger</h3>
         </a>
         <p>HTML/CSS/JS Website Project | US</br>
-         Based on Login/Search with Local Storage</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://rssambedkar.com/lara" target="_blank">
-          <img src="images/ratingsystem.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">Energydrink.com</h3>
-        </a>
-        <p>HTML/CSS/Bootstrap/PHP Laravel Project | USA </p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
-        <a href="https://emessenterprises.com/index.html" target="_blank">
-          <img src="images/emessenterprises.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">Emessenterprises.com/index.html</h3>
-        </a>
-        <p>HTML/CSS Custom Website | USA </p>
+          Based on Login/Search with Local Storage</p>
       </div>
 
       <div class="col-md-5 bg-dark p-1">
@@ -434,16 +363,94 @@
         <p>HTML/CSS Custom Website | USA </p>
       </div>
 
+       <div class="col-md-5 bg-dark p-1">
+          <img src="images/maximalsecurity.png" class="w-100 m-auto d-block">
+          <h3 class="text-center text-warning">maximalsecurityservices</h3>
+        <p>HTML/CSS/Bootstrap/js/Node.Js & Hosted On Firebase| USA</p>
+      </div>
 
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/tispd.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">Tispd.com</h3>
+        <p>HTML, CSS, Bootstrap, Node.js Website | Delhi, India</p>
+      </div>
+
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/igpt.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">I-GPT.ORG</h3>
+        <p>HTML/CSS/Bootstrap Custom Website | India</p>
+      </div>
+
+        <div class="col-md-5 bg-dark p-1">
+          <img src="images/filmhairstylist.png" class="w-100 m-auto d-block">
+          <h3 class="text-center text-warning">www.filmhairstylist.com</h3>
+        <p>HTML/CSS/Bootstrap Custom Website | USA</p>
+      </div>
+
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/apniitr.png" class="w-100 m-auto d-block">
+          <h3 class="text-center text-warning">Apni ITR</h3>
+        <p>HTML/CSS/PHP Website| USA</p>
+      </div>
+
+       <div class="col-md-5 bg-dark p-1">
+          <img src="images/goldenhillhealthcare.png" class="w-100 m-auto d-block">
+          <h3 class="text-center text-warning">www.goldenhillhealthcare.co.uk</h3>
+        <p>HTML/CSS/Bootstrap/JS/PHP Website | UK</p>
+      </div>
+
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/goldenhillhealthcare.png" class="w-100 m-auto d-block">
+          <h3 class="text-center text-warning">www.goldenhillhealthcare.co.uk</h3>
+        <p>HTML/CSS/Bootstrap/JS/PHP Website | UK</p>
+      </div>
+
+      
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/secondsinaday.png" class="w-100 m-auto d-block">
+          <h3 class="text-center text-warning">www.secondsinaday.com</h3>
+        <p>HTML/CSS/Bootstrap/JS/MySQL/PHP Web APP | UK</p>
+      </div>
+    
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/bookjee.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.bookjee.com</h3>
+        <p>HTML/CSS Website | INDIA</p>
+      </div>
+      
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/smith.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.smithtransportationandlogistics.com</h3>
+        <p>HTML/CSS Website | USA</p>
+      </div>
+      
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/ratingsystem.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">Energydrink.com</h3>
+        <p>HTML/CSS/Bootstrap/PHP Laravel Project | USA </p>
+      </div>
+      
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/aibooster.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">AI Booster</h3>
+        <p>HTML/CSS/Bootstrap/Django | USA </p>
+      </div>
+      
+      <div class="col-md-5 bg-dark p-1">
+          <img src="images/emessenterprises.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">Emessenterprises.com/index.html</h3>
+        <p>HTML/CSS Custom Website | USA </p>
+      </div>
+      
     </div>
   </div>
 
   <!-- WORDPRESS -->
-  <div class="container-fluid p-5 bg-secondary text-center" id="wordpress">
+  <div class="container-fluid p-5 bg-white text-center" id="wordpress">
     <div class="row justify-content-around g-5">
       <div class="col-md-12 text-light p-5 text-center">
-        <h3>WORDPRESS WEBSITE</h3>
-        <h6>CMS Based</h6>
+        <h3 style="color: #000000;">WORDPRESS WEBSITE</h3>
+        <h6 style="color: #000000;">CMS Based</h6>
       </div>
     </div>
 
@@ -538,14 +545,6 @@
       </div>
 
       <div class="col-md-5 bg-dark p-1">
-        <a href="https://www.rssambedkar.com" target="_blank">
-          <img src="images/rssambedkar.png" class="w-100 m-auto d-block" style="height:250px;">
-          <h3 class="text-center text-warning">www.rssambedkar.com</h3>
-        </a>
-        <p>Wordpress Website | INDIA</p>
-      </div>
-
-      <div class="col-md-5 bg-dark p-1">
         <a href="https://www.anupgarhjyoti.com" target="_blank">
           <img src="images/anupgarhjyoti.png" class="w-100 m-auto d-block" style="height:250px;">
           <h3 class="text-center text-warning">www.anupgarhjyoti.com</h3>
@@ -559,8 +558,8 @@
   <div class="container-fluid p-5 text-center" id="wix">
     <div class="row justify-content-around g-5">
       <div class="col-md-12 text-light p-5 text-center">
-        <h3>WIX WEBSITE</h3>
-        <h6>CMS Based</h6>
+        <h3 style="color: #000000;">WIX WEBSITE</h3>
+        <h6 style="color: #000000;">CMS Based</h6>
       </div>
     </div>
 
@@ -582,78 +581,86 @@
         <p>WIX Website | Delhi, India</p>
       </div>
 
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://www.projectethnomusicology.org" target="_blank">
-            <img src="images/projectethnomusicology.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">www.projectethnomusicology.org</h3>
-          </a>
-          <p>WIX Website | USA</p>
-        </div>
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://www.projectethnomusicology.org" target="_blank">
+          <img src="images/projectethnomusicology.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.projectethnomusicology.org</h3>
+        </a>
+        <p>WIX Website | USA</p>
+      </div>
 
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://www.wyndhaminstallations.com" target="_blank">
-            <img src="images/wyndhaminstallations.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">www.wyndhaminstallations.com</h3>
-          </a>
-          <p>WIX Website | UK </p>
-        </div>
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://www.wyndhaminstallations.com" target="_blank">
+          <img src="images/wyndhaminstallations.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.wyndhaminstallations.com</h3>
+        </a>
+        <p>WIX Website | UK </p>
+      </div>
 
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://gurvindersheth.wixsite.com/online-course" target="_blank">
-            <img src="images/findyourway.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">FIND YOUR WAY</h3>
-          </a>
-          <p>WIX Website | USA</p>
-        </div>
-  
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://vastram4.wixsite.com/vastram" target="_blank">
-            <img src="images/vastram4.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">Vastram Store</h3>
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://gurvindersheth.wixsite.com/online-course" target="_blank">
+          <img src="images/findyourway.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">FIND YOUR WAY</h3>
+        </a>
+        <p>WIX Website | USA</p>
+      </div>
+
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://vastram4.wixsite.com/vastram" target="_blank">
+          <img src="images/vastram4.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">Vastram Store</h3>
         </a>
         <p>WIX Website | India</p>
-        </div>
+      </div>
 
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://www.tmgrentalresource.com" target="_blank">
-            <img src="images/tmgrentalresource.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">www.tmgrentalresource.com</h3>
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://www.tmgrentalresource.com" target="_blank">
+          <img src="images/tmgrentalresource.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.tmgrentalresource.com</h3>
         </a>
         <p>WIX Website | USA</p>
       </div>
 
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://gurvindersheth.wixsite.com/gurvinder-sh" target="_blank">
-            <img src="images/gurvinder-sheth.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">Gurvinder Sheth Writer - Portfolio</h3>
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://gurvindersheth.wixsite.com/gurvinder-sh" target="_blank">
+          <img src="images/gurvinder-sheth.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">Gurvinder Sheth Writer - Portfolio</h3>
         </a>
         <p>WIX Website | USA</p>
       </div>
 
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://www.clean-air-illinois.org" target="_blank">
-            <img src="images/clear-air.png" class="w-100 m-auto d-block" style="height:250px;">
-            <h3 class="text-center text-warning">www.clean-air-illinois.org</h3>
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://www.clean-air-illinois.org" target="_blank">
+          <img src="images/clear-air.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.clean-air-illinois.org</h3>
         </a>
         <p>WIX Website</p>
       </div>
-      
-        <div class="col-md-5 bg-dark p-1 ">
-          <a href="https://www.willowfundingsolutions.com/" target="_blank">
-            <img src="images/willowfundingsolutions.png" class="w-100 m-auto d-block" style="height:250px;">
-           <h3 class="text-center text-warning">www.willowfundingsolutions.com</h3>
+
+      <div class="col-md-5 bg-dark p-1 ">
+        <a href="https://www.willowfundingsolutions.com/" target="_blank">
+          <img src="images/willowfundingsolutions.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.willowfundingsolutions.com</h3>
         </a>
         <p>WIX Website</p>
+      </div>
+
+       <div class="col-md-5 bg-dark p-1">
+        <a href="https://pankaj2504838.wixsite.com/mysite" target="_blank">
+          <img src="images/rssambedkar.png" class="w-100 m-auto d-block" style="height:250px;">
+          <h3 class="text-center text-warning">www.rssambedkar.com</h3>
+        </a>
+        <p>Wix Website | INDIA</p>
       </div>
 
     </div>
   </div>
 
   <!-- UI for Mobile Apps/Web Apps -->
-  <div class="container-fluid p-5 bg-secondary text-center" id="ui">
+  <div class="container-fluid p-5 bg-white text-center" id="ui">
     <div class="row justify-content-around g-5">
       <div class="col-md-12 text-light p-5 text-center">
-        <h3>User Interface Designs/Front End Designs (for Mobile & Web Apps)</h3>
+        <h3 style="color: #000000;">User Interface Designs/Front End Designs (for Mobile & Web Apps)</h3>
       </div>
     </div>
 
@@ -718,40 +725,39 @@
     </div>
   </div>
 
-     <!-- footer -->
-     <include src="footer.html"></include> 
+  <!-- footer -->
+  <include src="footer.html"></include>
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    
-    <script>
-      x=document.querySelectorAll(".col-md-5");
-      for(i=0;i<x.length;i++)
-      {
+
+  <script>
+    x = document.querySelectorAll(".col-md-5");
+    for (i = 0; i < x.length; i++) {
       x[i].setAttribute("data-aos", "fade-up");
-      }
+    }
 
     //Initiate Animation AOS Object
     AOS.init();
 
     //JS Codes for include nav and footer html files
-    let includes = document.getElementsByTagName('include');                
+    let includes = document.getElementsByTagName('include');
     for (var i = 0; i < includes.length; i++) {
-    let include = includes[i];
-    load_file(includes[i].attributes.src.value, function(text) 
-    {
+      let include = includes[i];
+      load_file(includes[i].attributes.src.value, function (text) {
         include.insertAdjacentHTML('afterend', text);
         include.remove();
-    });
+      });
     }
+
     function load_file(filename, callback) {
-    fetch(filename).then(response => response.text()).then(text => callback(text));
+      fetch(filename).then(response => response.text()).then(text => callback(text));
     }
-</script>
+  </script>
 
 </body>
 
