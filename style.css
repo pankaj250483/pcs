@@ -18,8 +18,8 @@
 
 body
 {
-    color: white;
-    background: #434459;
+    color: #000000;
+    background: #ffffff;
     font-family: 'Roboto', sans-serif;
     line-height: 1.5;
 }
@@ -73,7 +73,8 @@ li
 .brain-text
 {
      font-family: Georgia, serif;
-    font-size: 50px;
+    font-size: 45px;
+    color: #ffffff;
 }
 
 .digital-text
@@ -85,7 +86,7 @@ li
 
 .p-text
 {
-    font-size: 22px;
+    font-size: 23px;
     line-height: 1.7;
     text-align: left;
 }
@@ -167,7 +168,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
       border-radius: 5%;
       width: calc(100% - 30px) !important;}
        
-.col-md-4.bg-dark {
+.col-md-4.bg-dark{
       background-color: #1E5681 !important;
       color: #ffff !important;
     }
