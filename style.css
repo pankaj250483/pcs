@@ -174,4 +174,8 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
       background-color: #1E5681 !important;
       color: #ffff !important;
     }
+.col-md-5 img.w-100 {
+      margin: 15px;
+      border-radius: 10px;
+}
 
