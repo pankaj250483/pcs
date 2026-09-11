@@ -66,8 +66,10 @@ li
 
 .parallex1
 {
-    background: url("images/robot.jpg");
+    background: url("images/teamwork.png");
     background-attachment: fixed;
+    repeat: no-repeat;
+    background-size: cover;
 }
 
 .brain-text
