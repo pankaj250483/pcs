@@ -4,11 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pankaj Computers</title>
+  <title>Pankaj Computers - Our Rising Stars</title>
   
+  <!-- Bootstrap CSS -->
   <link href="style.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/pcs.png">
 
+  <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>
   
   <!-- Vue 3 & AOS JS -->
@@ -48,121 +50,137 @@
   <!-- HEADER -->
   <include src="header.html"></include>
 
-  <div class="container-fluid pt-3 bg-blue">
-    <div class="row justify-content-around text-center">
-      <div class="col-md-10 p-0">
-        <p class="brain-text">Our Rising Stars</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container-fluid text-center py-2 bg-blue sticky-top">
-    <a href="risingstar.html" class="btn btn-light rounded-pill px-4 py-2 m-2">Rising Star (Page-1)</a>
-    <a href="risingstar2.html" class="btn btn-light rounded-pill px-4 py-2 m-2">Rising Star (Page-2)</a>
-    <a href="risingstar3.html" class="btn btn-light rounded-pill px-4 py-2 m-2">Rising Star (Page-3)</a>
-  </div>
-
-  <div class="container-fluid">
-    <div class="row justify-content-around text-center">
-      <div class="col-md-9 py-3">
-        <iframe class="w-100" style="height: 650px;" src="https://www.youtube.com/embed/LtpaEVarflU?si=Q-IkyaSskQqLq45G"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Vue Mount Element -->
+  <!-- Vue App Element -->
   <div id="app">
-    <div class="container-fluid p-5">
-      <div class="row g-4 justify-content-around text-center">
-        <div 
-          v-for="card in cards" 
-          :key="card.id" 
-          class="col-md-4"
-          data-aos="fade-up"
-        >
-          <div class="bg-dark text-white h-100 p-0">
-            <img :src="card.image" alt="Awarding Certificate" class="w-100 h-fix mb-5">
-            <h3>AWARDING CERTIFICATE</h3>
-            <p class="p-5">{{ card.description }}</p>
-          </div>
+    <div class="container-fluid pt-3 bg-blue">
+      <div class="row justify-content-around text-center">
+        <div class="col-md-10 p-0">
+          <p class="brain-text">Our Rising Stars</p>
         </div>
       </div>
     </div>
+
+    <!-- Navigation Bar -->
+    <div class="container-fluid text-center py-2 bg-blue sticky-top">
+      <button 
+        v-for="page in totalPages" 
+        :key="page" 
+        @click="changePage(page)"
+        :class="['btn rounded-pill px-4 py-2 m-2', currentPage === page ? 'btn-primary' : 'btn-light']"
+      >
+        Rising Star (Page-{{ page }})
+      </button>
+    </div>
+
+    <!-- Dynamic Sections Loop (Cards & Interspersed Videos) -->
+    <template v-for="(section, sIndex) in activeSections" :key="sIndex">
+      
+      <!-- Video Section -->
+      <div v-if="section.type === 'video'" class="container-fluid my-4">
+        <div class="row justify-content-around text-center">
+          <div class="col-md-9 py-3">
+            <iframe 
+              class="w-100" 
+              style="height: 650px;" 
+              :src="section.url"
+              title="YouTube video player" 
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            <div v-if="section.subtitle" class="mt-2">
+              <span class="text-warning"><br>{{ section.subtitle }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards Grid Section -->
+      <div v-else-if="section.type === 'cards'" class="container-fluid p-5">
+        <div class="row g-4 justify-content-around text-center">
+          <div 
+            v-for="card in section.items" 
+            :key="card.id" 
+            class="col-md-4"
+            data-aos="fade-up"
+          >
+            <div class="bg-dark text-white h-100 p-0">
+              <img :src="card.image" alt="Awarding Certificate" class="w-100 h-fix mb-5">
+              <h3>AWARDING CERTIFICATE</h3>
+              <p class="p-5">
+                {{ card.description }}
+                <span v-if="card.placement" class="text-warning">
+                  <br>{{ card.placement }}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </template>
   </div>
 
-  <!-- footer -->
+  <!-- FOOTER -->
   <include src="footer.html"></include>
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
 
-  <!-- JS Codes -->
+  <!-- Vue & AOS Handler -->
   <script>
-    // 1. Vue App Definition
     const { createApp, nextTick } = Vue;
 
     createApp({
       data() {
         return {
-          cards: [
-            {
-              id: 1,
-              image: 'images/c51.jpeg',
-              description: 'Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Ms. Sunita for completing Course of Financial Accounting.'
-            },
-            {
-              id: 2,
-              image: 'images/c45.jpeg',
-              description: 'Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Arun Soni for completing Course of Computer Application and Financial Accounting.'
-            },
-            {
-              id: 3,
-              image: 'images/c52.jpeg',
-              description: 'Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Ms. Preet kaur for completing Course of Computer Application.'
-            },
-            {
-              id: 4,
-              image: 'images/c46.jpeg',
-              description: 'Director Mrs. Sonia Ojha awarding certificate to Ms. Navneet Kaur for completing Course of Computer Application.'
-            },
-            {
-              id: 5,
-              image: 'images/c49.jpeg',
-              description: 'Centre Head Miss. Geet Sharma awarding certificate to Mr. Vijaylakshmi for completing Course of Financial Accounting.'
-            },
-            {
-              id: 6,
-              image: 'images/c47.jpeg',
-              description: 'Director Mrs. Sonia Ojha awarding certificate to Ms. Navdeep Kaur for completing Course of Financial Accounting.'
-            },
-            {
-              id: 7,
-              image: 'images/c48.jpeg',
-              description: 'Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Arshdeep Singh for completing Course of Financial Accounting.'
-            },
-            {
-              id: 8,
-              image: 'images/c50.png',
-              description: 'Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Danish Verma for completing Course of Financial Accounting.'
-            }
-          ]
+          currentPage: 1,
+          totalPages: 3,
+          pageData: {}
         };
       },
-      mounted() {
-        this.$nextTick(() => {
-          AOS.init({
-            duration: 800,
-            once: true
+      computed: {
+        activeSections() {
+          return this.pageData[this.currentPage]?.sections || [];
+        }
+      },
+      methods: {
+        changePage(pageNumber) {
+          this.currentPage = pageNumber;
+          
+          // Smooth scroll back to top of content when switching pages
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          // Re-initialize/refresh AOS animations on page switch
+          this.$nextTick(() => {
+            if (typeof AOS !== 'undefined') {
+              AOS.refreshHard();
+            }
           });
-        });
+        }
+      },
+      mounted() {
+        // Load risingstar.json file dynamically
+        fetch('risingstar.json')
+          .then(response => response.json())
+          .then(data => {
+            this.pageData = data;
+            
+            // Initialize AOS once elements are rendered in DOM
+            this.$nextTick(() => {
+              AOS.init({
+                duration: 800,
+                once: true
+              });
+            });
+          })
+          .catch(error => console.error("Error fetching risingstar.json:", error));
       }
     }).mount('#app');
 
+    // Header/Footer include script
     let includes = document.getElementsByTagName('include');
     for (var i = 0; i < includes.length; i++) {
       let include = includes[i];

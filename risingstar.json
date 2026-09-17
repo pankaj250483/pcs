@@ -1,0 +1,129 @@
+{
+  "1": {
+    "sections": [
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/LtpaEVarflU?si=Q-IkyaSskQqLq45G"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "id": 101, "image": "images/c51.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Ms. Sunita for completing Course of Financial Accounting." },
+          { "id": 102, "image": "images/c45.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Arun Soni for completing Course of Computer Application and Financial Accounting." },
+          { "id": 103, "image": "images/c52.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Ms. Preet kaur for completing Course of Computer Application." },
+          { "id": 104, "image": "images/c46.jpeg", "description": "Director Mrs. Sonia Ojha awarding certificate to Ms. Navneet Kaur for completing Course of Computer Application." },
+          { "id": 105, "image": "images/c49.jpeg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Mr. Vijaylakshmi for completing Course of Financial Accounting." },
+          { "id": 106, "image": "images/c47.jpeg", "description": "Director Mrs. Sonia Ojha awarding certificate to Ms. Navdeep Kaur for completing Course of Financial Accounting." },
+          { "id": 107, "image": "images/c48.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Arshdeep Singh for completing Course of Financial Accounting." },
+          { "id": 108, "image": "images/c50.png", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Danish Verma for completing Course of Financial Accounting." }
+        ]
+      }
+    ]
+  },
+  "2": {
+    "sections": [
+      {
+        "type": "cards",
+        "items": [
+          { "id": 201, "image": "images/c1.jpg", "description": "Centre Head Miss. Gayatri Swami awarding certificate to Mr. Sukhdeep Singh for completing Course of Computer Application.", "placement": "Got Placement in Bajaj Finance" },
+          { "id": 202, "image": "images/c2.jpg", "description": "Centre Director Mrs. Sonia Ojha awarding certificate to Miss. Rajpreet Kaur for completing Course of Computer Application.", "placement": "Got Placement in Priviate School" },
+          { "id": 203, "image": "images/c3.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Mr. Kuldeep Singh for completing Course of Computer Application.", "placement": "Got Placement in Private Commpany" },
+          { "id": 204, "image": "images/c4.jpg", "description": "Centre Head Miss. Gayatri Swami awarding certificate to Mr. Nirmal Singh for completing Course of Computer Application.", "placement": "Got Placement in HDFC Bank" },
+          { "id": 205, "image": "images/c5.jpg", "description": "Centre Director Mrs. Sonia Ojha awarding certificate to Mr. Manpreet Kaur for completing Course of Computer Application.", "placement": "Got Placement in Food Corporation of India" },
+          { "id": 206, "image": "images/c6.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Mr. Akaashdeep Singh for completing Course of Computer Application." }
+        ]
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/D4lcxEYivwc"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "id": 207, "image": "images/REKHA.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Rekha for completing Course of Computer Application." },
+          { "id": 208, "image": "images/NISHTHA.jpeg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Miss. Nishtha Arora for completing Course of Computer Application." },
+          { "id": 209, "image": "images/JASHAN.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Jashan Aulakh for completing Course of Computer Application & Financial Accounting." },
+          { "id": 210, "image": "images/c10.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Ranjana Saraswat for completing Course of Computer Application & Financial Accounting.", "placement": "Got Placement as Invigilator" },
+          { "id": 211, "image": "images/c11.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Heena Arora for completing Course of Computer Application & Financial Accounting.", "placement": "Got Placement in Rajasthan High Court Jodhpur" },
+          { "id": 212, "image": "images/c12.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Jashanpreet Kaur for completing Course of Computer Application & Financial Accounting.", "placement": "Got Placement in Insurance Company" },
+          { "id": 213, "image": "images/YUVRAJ.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Yuvraj Singh for completing Course of Computer Application." },
+          { "id": 214, "image": "images/MINAKSHI.jpeg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Miss. Minakhshi Choudhary for completing Course of Computer Application." },
+          { "id": 215, "image": "images/DIVESH.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Divesh Kaswan for completing Course of Computer Application." },
+          { "id": 216, "image": "images/c7.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Ramandeep Kaur for completing Course of Computer Application." },
+          { "id": 217, "image": "images/c8.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Geet Sharma for completing Course of Computer Application.", "placement": "Got Placement @ Pankaj Computers" },
+          { "id": 218, "image": "images/c9.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Heena Khan for completing Course of Computer Application." }
+        ]
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/m0qQrY8-zHw",
+        "subtitle": "Got placement in Nagar Palika in 2022-2023, Government Girls School in 2024, Private School Early 2026, Elected Ward Member in Sep. 2026"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "id": 219, "image": "images/c39.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Khushi Grover for completing Course of Computer Application." },
+          { "id": 220, "image": "images/c40.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Sukhchain Singh for completing Course of Computer Application & Financial Accounting." },
+          { "id": 221, "image": "images/c41.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Mr. Vakeel Singh for completing Course of Computer Application & Financial Accounting." },
+          { "id": 222, "image": "images/c16.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Miss. Gunjan Arora for completing Course of Computer Application." },
+          { "id": 223, "image": "images/c17.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Miss. Amandeep Kaur for completing Course of Computer Application.", "placement": "Got Placement in Advocate Office" },
+          { "id": 224, "image": "images/c18.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Mr. Palvinder Singh for completing Course of Computer Application." },
+          { "id": 225, "image": "images/c13.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Kudrat Ali for completing Course of Web Designing & Web Development.", "placement": "Working as Web Developer Freelancer" },
+          { "id": 226, "image": "images/c14.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Kartik Verma for completing Course of Computer Application & Financial Accounting." },
+          { "id": 227, "image": "images/c15.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Rajender Kumar for completing Course of Computer Application & Office Expert.", "placement": "Got Promotion in his job" }
+        ]
+      }
+    ]
+  },
+  "3": {
+    "sections": [
+      {
+        "type": "cards",
+        "items": [
+          { "id": 301, "image": "images/c19.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Rathore for completing Course of Computer Application." },
+          { "id": 302, "image": "images/c20.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Gopal for completing Course of Computer Application." },
+          { "id": 303, "image": "images/c21.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Kamaldeep Barupal for completing Course of Computer Application." },
+          { "id": 304, "image": "images/c42.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Dheeraj Bishnoi for completing Course of Website Design & Development." },
+          { "id": 305, "image": "images/c43.jpeg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Miss. Keeva Godara for completing Course of Financial Accounting." },
+          { "id": 306, "image": "images/GURVINDER.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Gurvinder Singh for completing Course of Financial Accounting." },
+          { "id": 307, "image": "images/c22.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Ranjeet Barod (Vol. Border Home Guard) for completing Course of Computer Application." },
+          { "id": 308, "image": "images/c23.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Gurjant Singh for completing Course of Computer Application & Financial Accounting.", "placement": "Got Placement in HDFC Bank" },
+          { "id": 309, "image": "images/c24.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Arora for completing Course of Computer Application." }
+        ]
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/D4lcxEYivwc"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "id": 310, "image": "images/c25.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Sourav Chugh for completing Course of Computer Application & Financial Accounting.", "placement": "Got Placement in AU Bank Home Loan Branch" },
+          { "id": 311, "image": "images/c26.jpg", "description": "Centre Head Mr. Geet Sharma awarding certificate to Miss. Neelam Kanwar for completing Course of Computer Application.", "placement": "Got Placement in S.P. Office Jodhpur" },
+          { "id": 312, "image": "images/c27.jpg", "description": "Centre Head Mr. Geet Sharma awarding certificate to Miss. Sugana for completing Course of Computer Application.", "placement": "Got Placement in Public Helath & Engineering Department" },
+          { "id": 313, "image": "images/c28.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Birbal Ram for completing Course of Computer Application." },
+          { "id": 314, "image": "images/c29.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Kamal Dhuria for completing Course of Computer Application & Financial Accounting.", "placement": "Got Placement in Private School" },
+          { "id": 315, "image": "images/c30.jpg", "description": "Centre Head Miss. Gayatri Sharma awarding certificate to Miss. for completing Course of Computer Application." }
+        ]
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/P9gJlR-DLQU"
+      },
+      {
+        "type": "cards",
+        "items": [
+          { "id": 316, "image": "images/c31.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Ramnivas for completing Course of Computer Application & Financial Accounting", "placement": "Got placement in Minicipal Board Office" },
+          { "id": 317, "image": "images/c32.jpg", "description": "Centre Head Miss. Geet Sharma awarding certificate to Miss. Krishana for completing Course of Computer Application." },
+          { "id": 318, "image": "images/c33.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Ajay Pensia for completing Course of Computer Application." },
+          { "id": 319, "image": "images/c34.jpg", "description": "Centre Head Miss. Gayatri Sharma awarding certificate to Miss. Pratigya Verma for completing Course of Computer Application.", "placement": "Got placement in PHED" },
+          { "id": 320, "image": "images/c35.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Miss. Jagrati Verma for completing Course of Computer Application." },
+          { "id": 321, "image": "images/c36.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Chugh for completing Course of Computer Application & Office Expert." },
+          { "id": 322, "image": "images/c37.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Arun Kumar for completing Course of Computer Application & Office Expert." },
+          { "id": 323, "image": "images/c38.jpg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Gaurav Kumar for completing Course of Computer Application & Office Expert." },
+          { "id": 324, "image": "images/c44.jpeg", "description": "Founder & Managing Director Mr. Pankaj Ojha awarding certificate to Mr. Anmol Singh for completing Course of Computer Application." }
+        ]
+      }
+    ]
+  }
+}
