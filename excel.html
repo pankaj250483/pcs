@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel & Advanced Analytics Masterclass | Zero to Hero</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --excel-primary: #107c41;
+            --excel-primary-hover: #0b5c30;
+            --excel-dark: #1f6e43;
+            --excel-darker: #0d3822;
+            --excel-accent: #21a366;
+            --excel-light: #e6f4ea;
+            --excel-mint: #d1e7dd;
+            --bg-neutral: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #333333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Theme Overrides & Utilities */
+        .text-excel {
+            color: var(--excel-primary) !important;
+        }
+
+        .bg-excel {
+            background-color: var(--excel-primary) !important;
+            color: #ffffff;
+        }
+
+        .bg-excel-dark {
+            background-color: var(--excel-darker) !important;
+            color: #ffffff;
+        }
+
+        .bg-excel-light {
+            background-color: var(--excel-light) !important;
+        }
+
+        .btn-excel {
+            background-color: var(--excel-primary);
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 4px 12px rgba(16, 124, 65, 0.25);
+        }
+
+        .btn-excel:hover, .btn-excel:focus {
+            background-color: var(--excel-primary-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 124, 65, 0.35);
+        }
+
+        .btn-outline-excel {
+            border: 2px solid var(--excel-primary);
+            color: var(--excel-primary);
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            transition: all 0.25s ease-in-out;
+            background: transparent;
+        }
+
+        .btn-outline-excel:hover {
+            background-color: var(--excel-primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--excel-dark);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #4a5568;
+            margin: 0 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--excel-primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0d3822 0%, #1f6e43 50%, #107c41 100%);
+            color: white;
+            padding: 120px 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+
+        .badge-hero {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Feature & Spec Cards */
+        .card-custom {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: #ffffff;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--excel-mint);
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Tabs & Accordion Styling */
+        .nav-pills-excel .nav-link {
+            color: #4a5568;
+            font-weight: 600;
+            padding: 0.85rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 0.5rem;
+            background: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .nav-pills-excel .nav-link.active {
+            background-color: var(--excel-primary);
+            color: #ffffff;
+            border-color: var(--excel-primary);
+            box-shadow: 0 4px 12px rgba(16, 124, 65, 0.2);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--excel-light);
+            color: var(--excel-darker);
+            font-weight: 700;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--excel-mint);
+        }
+
+        /* Pricing Card */
+        .pricing-card {
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--excel-primary);
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(16, 124, 65, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--excel-primary);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Lead Form */
+        .lead-form-card {
+            background: linear-gradient(135deg, #1f6e43 0%, #0d3822 100%);
+            border-radius: 24px;
+            color: white;
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--excel-primary);
+            box-shadow: 0 0 0 0.25rem rgba(16, 124, 65, 0.25);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b2215;
+            color: #a0aec0;
+        }
+
+        footer a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-file-earmark-excel-fill text-excel me-2 fs-2"></i>
+                <span>Pankaj Computers - <span class="text-excel">Excel Hub</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#syllabus">Syllabus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="#enroll" class="btn btn-excel btn-sm px-4 py-2">Enroll Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container position-relative">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7">
+                    <div class="badge-hero mb-3">
+                        <i class="bi bi-award-fill me-2 text-warning"></i> Complete Beginner to Advanced Masterclass
+                    </div>
+                    <h1 class="display-4 fw-extrabold mb-3 leading-tight">
+                        Master Excel & Advanced Data Analytics
+                    </h1>
+                    <p class="lead mb-4 text-light opacity-90 fs-5">
+                        Transform raw data into high-impact business insights. Learn modern functions (XLOOKUP, Dynamic Arrays), Power Query ETL, Data Modeling with DAX, and VBA Automation through hands-on practice.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <a href="#syllabus" class="btn btn-excel btn-lg">
+                            <i class="bi bi-journal-bookmark-fill me-2"></i>Explore Syllabus
+                        </a>
+                        <a href="#enroll" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-lightning-charge-fill me-2"></i>Join Now - Call 94145-37189
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center gap-4 text-light opacity-90 pt-3 border-top border-white-10">
+                        <div><i class="bi bi-clock-fill me-1"></i> 60 Hours Content</div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-card">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="badge bg-success px-3 py-2">Live + Recorded</span>
+                            <span class="text-white-50 fs-7">Updated for Excel 365</span>
+                        </div>
+                        <h4 class="text-white mb-3">What You Will Achieve:</h4>
+                        <ul class="list-unstyled text-white-50 mb-4">
+                            <li class="mb-2 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i> Build Interactive Dashboards & Slicers
+                            </li>
+                            <li class="mb-2 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i> Automate Weekly Reports with Power Query
+                            </li>
+                            <li class="mb-2 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i> Write Advanced DAX & Data Models
+                            </li>
+                            <li class="mb-2 d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i> Program Macros using VBA Code
+                            </li>
+                        </ul>
+                        <div class="p-3 rounded-3 bg-white bg-opacity-10 mb-3 border border-white-10">
+                            <div class="d-flex justify-content-between text-white fs-7 mb-1">
+                                <span>Next Live Cohort:</span>
+                                <span class="fw-bold text-warning">Starts Next Monday</span>
+                            </div>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 82%;"></div>
+                            </div>
+                            <small class="text-white-50 mt-1 d-block">Only 8 seats remaining for this batch</small>
+                        </div>
+                        <a href="#enroll" class="btn btn-warning w-full text-dark fw-bold py-2.5">Claim Your Spot Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview / Key Highlights -->
+    <section id="overview" class="py-5 bg-neutral">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-excel text-uppercase fw-bold fs-7 tracking-wider">Why Choose This Course</span>
+                <h2 class="fw-bold mt-1">Designed for Professional Success</h2>
+                <p class="text-muted">Accelerate your career with industry-relevant spreadsheets skills and automation techniques.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom p-4 text-center">
+                        <div class="icon-box bg-excel-light text-excel mx-auto">
+                            <i class="bi bi-play-btn-fill"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">60 Hours Content</h5>
+                        <p class="text-muted small mb-0">Bite-sized high-definition video modules with downloadable practice workbooks.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom p-4 text-center">
+                        <div class="icon-box bg-excel-light text-excel mx-auto">
+                            <i class="bi bi-kanban-fill"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Practice Classes</h5>
+                        <p class="text-muted small mb-0">Apply logic on real-world datasets: Sales, Finance, HR, and Inventory analytics.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom p-4 text-center">
+                        <div class="icon-box bg-excel-light text-excel mx-auto">
+                            <i class="bi bi-patch-check-fill"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Verified Certificate</h5>
+                        <p class="text-muted small mb-0">Shareable credential for your LinkedIn profile and resume to stand out.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom p-4 text-center">
+                        <div class="icon-box bg-excel-light text-excel mx-auto">
+                            <i class="bi bi-infinity"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Lifetime Access</h5>
+                        <p class="text-muted small mb-0">Unlimited access to all future updates, cheat sheets, and active Q&A forum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Syllabus Section -->
+    <section id="syllabus" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="text-excel text-uppercase fw-bold fs-7">Curriculum Breakdown</span>
+                <h2 class="fw-bold mt-1">Comprehensive Syllabus</h2>
+                <p class="text-muted">A structured learning path taking you from basic formulas to advanced automation.</p>
+            </div>
+
+            <div class="row">
+                <!-- Navigation Tabs for Desktop -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="nav flex-column nav-pills nav-pills-excel" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active d-flex align-items-center text-start" id="v-pills-part1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-part1" type="button" role="tab">
+                            <span class="badge bg-success me-3">Part 1</span>
+                            <div>
+                                <div class="fw-bold">Basic & Intermediate Excel</div>
+                                <small class="text-muted d-block font-normal">Interface, Functions & Tables</small>
+                            </div>
+                        </button>
+                        <button class="nav-link d-flex align-items-center text-start" id="v-pills-part2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-part2" type="button" role="tab">
+                            <span class="badge bg-success me-3">Part 2</span>
+                            <div>
+                                <div class="fw-bold">Advanced Excel Functions</div>
+                                <small class="text-muted d-block font-normal">XLOOKUP, Dynamic Arrays, Pivots</small>
+                            </div>
+                        </button>
+                        <button class="nav-link d-flex align-items-center text-start" id="v-pills-part3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-part3" type="button" role="tab">
+                            <span class="badge bg-success me-3">Part 3</span>
+                            <div>
+                                <div class="fw-bold">Power Query & Power Pivot</div>
+                                <small class="text-muted d-block font-normal">ETL, Data Models & DAX</small>
+                            </div>
+                        </button>
+                        <button class="nav-link d-flex align-items-center text-start" id="v-pills-part4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-part4" type="button" role="tab">
+                            <span class="badge bg-success me-3">Part 4</span>
+                            <div>
+                                <div class="fw-bold">VBA & Macro Automation</div>
+                                <small class="text-muted d-block font-normal">Macros, Loops & Custom Controls</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab Content Details -->
+                <div class="col-lg-8">
+                    <div class="tab-content id="v-pills-tabContent" class="p-4 rounded-4 bg-light border">
+
+                        <!-- Part 1 -->
+                        <div class="tab-pane fade show active" id="v-pills-part1" role="tabpanel">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-bold text-excel mb-0">Part 1: Core Fundamentals & Intermediate Features</h4>
+                                <span class="badge bg-excel-light text-excel">10 Hours</span>
+                            </div>
+                            <p class="text-muted mb-4">Master the grid, data formatting, basic formulas, and visualization rules to build clean spreadsheets.</p>
+                            
+                            <div class="accordion accordion-flush" id="accordionPart1">
+                                <div class="accordion-item mb-2 rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#p1-m1">
+                                            Module 1: Excel Interface & Essential Operations
+                                        </button>
+                                    </h2>
+                                    <div id="p1-m1" class="accordion-collapse collapse show" data-bs-parent="#accordionPart1">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Ribbon, Quick Access Toolbar, and Workbook Management</li>
+                                                <li>Custom Number Formatting (Currency, Text, Hidden masks)</li>
+                                                <li>Flash Fill, AutoFill tricks, and productivity shortcuts</li>
+                                                <li>Relative, Absolute ($A$1), and Mixed ($A1) Cell Referencing</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-2 rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1-m2">
+                                            Module 2: Essential Formulas & Math Logic
+                                        </button>
+                                    </h2>
+                                    <div id="p1-m2" class="accordion-collapse collapse" data-bs-parent="#accordionPart1">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Basic statistical formulas: <code>SUM</code>, <code>AVERAGE</code>, <code>COUNT</code>, <code>COUNTA</code>, <code>MAX</code>, <code>MIN</code></li>
+                                                <li>Logical testing: <code>IF</code>, <code>AND</code>, <code>OR</code> logic trees</li>
+                                                <li>Data Cleanup: <code>TRIM</code>, <code>TEXTSPLIT</code>, <code>CONCAT</code>, <code>UPPER</code>, <code>LOWER</code></li>
+                                                <li>Date Functions: <code>TODAY</code>, <code>DATEDIF</code>, <code>EOMONTH</code>, <code>WORKDAY</code></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1-m3">
+                                            Module 3: Tables & Conditional Formatting
+                                        </button>
+                                    </h2>
+                                    <div id="p1-m3" class="accordion-collapse collapse" data-bs-parent="#accordionPart1">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Converting ranges to Structured Excel Tables (Ctrl + T)</li>
+                                                <li>Conditional Formatting Rules, Data Bars, and Icon Sets</li>
+                                                <li>Sorting and Advanced Multi-Level Filters</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Part 2 -->
+                        <div class="tab-pane fade" id="v-pills-part2" role="tabpanel">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-bold text-excel mb-0">Part 2: Advanced Data Analysis & Formulas</h4>
+                                <span class="badge bg-excel-light text-excel">12 Hours</span>
+                            </div>
+                            <p class="text-muted mb-4">Leverage dynamic arrays, sophisticated lookups, and pivot charts for complex analytical tasks.</p>
+
+                            <div class="accordion accordion-flush" id="accordionPart2">
+                                <div class="accordion-item mb-2 rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#p2-m1">
+                                            Module 4: Next-Gen Lookups & Dynamic Arrays
+                                        </button>
+                                    </h2>
+                                    <div id="p2-m1" class="accordion-collapse collapse show" data-bs-parent="#accordionPart2">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Mastering <code>XLOOKUP</code> & <code>XMATCH</code> over legacy VLOOKUP</li>
+                                                <li>Two-way Lookups with <code>INDEX</code> + <code>MATCH</code></li>
+                                                <li>Dynamic Arrays: <code>FILTER</code>, <code>UNIQUE</code>, <code>SORT</code>, <code>SORTBY</code>, <code>SEQUENCE</code></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-2 rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p2-m2">
+                                            Module 5: Summary Aggregations & Pivot Tables
+                                        </button>
+                                    </h2>
+                                    <div id="p2-m2" class="accordion-collapse collapse" data-bs-parent="#accordionPart2">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Conditional Summaries: <code>SUMIFS</code>, <code>COUNTIFS</code>, <code>AVERAGEIFS</code></li>
+                                                <li>Building Pivot Tables, Field Settings & % of Grand Total</li>
+                                                <li>Interactive Dashboard Slicers & Timelines</li>
+                                                <li>What-If Analysis: Goal Seek, Data Tables, & Scenario Manager</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Part 3 -->
+                        <div class="tab-pane fade" id="v-pills-part3" role="tabpanel">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-bold text-excel mb-0">Part 3: Power Query, Power Pivot & DAX</h4>
+                                <span class="badge bg-excel-light text-excel">10 Hours</span>
+                            </div>
+                            <p class="text-muted mb-4">Automate data extraction, transformation, loading (ETL), and construct scalable relational data models.</p>
+
+                            <div class="accordion accordion-flush" id="accordionPart3">
+                                <div class="accordion-item mb-2 rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#p3-m1">
+                                            Module 6: Power Query Automation (ETL)
+                                        </button>
+                                    </h2>
+                                    <div id="p3-m1" class="accordion-collapse collapse show" data-bs-parent="#accordionPart3">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Importing data from CSVs, Folders, Web, & SQL Databases</li>
+                                                <li>Unpivoting columns, Appending, and Merging datasets (Joins)</li>
+                                                <li>Creating automated repeatable data cleaning workflows</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p3-m2">
+                                            Module 7: Data Modeling & DAX Formulas
+                                        </button>
+                                    </h2>
+                                    <div id="p3-m2" class="accordion-collapse collapse" data-bs-parent="#accordionPart3">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Creating Star Schemas & Relationships in Power Pivot</li>
+                                                <li>DAX Fundamentals: Explicit Measures vs. Calculated Columns</li>
+                                                <li>Essential DAX: <code>CALCULATE</code>, <code>RELATED</code>, <code>SUMX</code>, <code>ALL</code></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Part 4 -->
+                        <div class="tab-pane fade" id="v-pills-part4" role="tabpanel">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="fw-bold text-excel mb-0">Part 4: VBA & Macro Automation</h4>
+                                <span class="badge bg-excel-light text-excel">8 Hours</span>
+                            </div>
+                            <p class="text-muted mb-4">Eliminate routine manual work by building customized scripts and interactive user tools.</p>
+
+                            <div class="accordion accordion-flush" id="accordionPart4">
+                                <div class="accordion-item mb-2 rounded-3 border-0 overflow-hidden shadow-sm">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#p4-m1">
+                                            Module 8: Macro Fundamentals & VBA Scripting
+                                        </button>
+                                    </h2>
+                                    <div id="p4-m1" class="accordion-collapse collapse show" data-bs-parent="#accordionPart4">
+                                        <div class="accordion-body text-secondary">
+                                            <ul class="mb-0">
+                                                <li>Recording, Editing, and Debugging recorded Macros</li>
+                                                <li>VBA Syntax: Modules, Subroutines, Variables, and Logic Loops (<code>For Each</code>, <code>If...Then</code>)</li>
+                                                <li>Creating Action Buttons & Custom Form Controls</li>
+                                                <li>Automating Multi-Workbook consolidation scripts</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hands-on Projects Section -->
+    <section id="projects" class="py-5 bg-neutral">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-excel text-uppercase fw-bold fs-7">Real-World Portfolio</span>
+                <h2 class="fw-bold mt-1">Hands-On Course Deliverables</h2>
+                <p class="text-muted">You won't just learn theory. You'll build 4 production-ready projects to showcase to employers.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom border-0 shadow-sm overflow-hidden">
+                        <div class="bg-excel p-4 text-center text-white">
+                            <i class="bi bi-speedometer2 fs-1"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <span class="badge bg-excel-light text-excel mb-2">Project 01</span>
+                            <h5 class="fw-bold mb-2">Dynamic Executive Sales Dashboard</h5>
+                            <p class="text-muted small">Interactive KPI summary featuring custom Pivot Charts, Slicers, KPI cards, and dynamic timeframe toggles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom border-0 shadow-sm overflow-hidden">
+                        <div class="bg-excel-dark p-4 text-center text-white">
+                            <i class="bi bi-diagram-3-fill fs-1"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <span class="badge bg-excel-light text-excel mb-2">Project 02</span>
+                            <h5 class="fw-bold mb-2">Automated Multi-File ETL Pipeline</h5>
+                            <p class="text-muted small">Power Query setup that extracts 12 monthly sales CSV files from a folder and auto-cleans them with one click.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom border-0 shadow-sm overflow-hidden">
+                        <div class="bg-excel p-4 text-center text-white">
+                            <i class="bi bi-graph-up-arrow fs-1"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <span class="badge bg-excel-light text-excel mb-2">Project 03</span>
+                            <h5 class="fw-bold mb-2">3-Statement Financial Model</h5>
+                            <p class="text-muted small">Linked Income Statement, Balance Sheet, and Cash Flow model with sensitivity Analysis & Goal Seek.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-custom border-0 shadow-sm overflow-hidden">
+                        <div class="bg-excel-dark p-4 text-center text-white">
+                            <i class="bi bi-receipt-cutoff fs-1"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <span class="badge bg-excel-light text-excel mb-2">Project 04</span>
+                            <h5 class="fw-bold mb-2">Automated VBA Invoice Generator</h5>
+                            <p class="text-muted small">VBA script that automatically creates customized customer PDF invoices and emails them via Outlook.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-neutral">
+        <div class="container py-4">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="text-excel text-uppercase fw-bold fs-7">Transparent Pricing</span>
+                <h2 class="fw-bold mt-1">Choose Your Learning Path</h2>
+                <p class="text-muted">Select the plan that fits your career goals. All plans include full certificate access.</p>
+            </div>
+
+            <div class="row g-4 align-items-center justify-content-center">
+                <!-- Basic Plan -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card p-4 border-0 shadow-sm bg-white">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-dark">Basic Excel</h5>
+                            <p class="text-muted small">For beginners building fundamentals</p>
+                            <div class="my-4">
+                                <span class="display-5 fw-bold">$49</span>
+                                <span class="text-muted">/ one-time</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2 text-excel me-2 fs-5"></i> Part 1: Core Fundamentals</li>
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2 text-excel me-2 fs-5"></i> 15 Hours Classes</li>
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2 text-excel me-2 fs-5"></i> Downloadable Workbooks</li>
+                                <li class="mb-3 d-flex align-items-center text-muted fs-7"><i class="bi bi-x me-2 fs-5"></i> Excel Formulas</li>
+                            </ul>
+                            <a href="#enroll" class="btn btn-outline-excel w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Plan (Featured) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card pricing-card featured p-4 bg-white">
+                        <div class="popular-badge">POPULAR</div>
+                        <div class="card-body">
+                            <h5 class="fw-bold text-excel">Advanced Pro</h5>
+                            <p class="text-muted small">For analysts & working professionals</p>
+                            <div class="my-4">
+                                <span class="display-5 fw-bold">$399</span>
+                                <span class="text-muted">/ one-time</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2-circle text-excel me-2 fs-5"></i> All 4 Course Parts Included</li>
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2-circle text-excel me-2 fs-5"></i> 60+ Hours Lessons & Classes</li>
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2-circle text-excel me-2 fs-5"></i> Projects</li>
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2-circle text-excel me-2 fs-5"></i> Power Query, Power Pivot & DAX</li>
+                                <li class="mb-3 d-flex align-items-center fs-7"><i class="bi bi-check2-circle text-excel me-2 fs-5"></i> Verified Course Certificate</li>
+                            </ul>
+                            <a href="#enroll" class="btn btn-excel w-100">Enroll Pro Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment / Lead Form Section -->
+    <section id="enroll" class="py-5">
+        <div class="container py-4">
+            <div class="lead-form-card">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-6">
+                        <span class="badge bg-white text-dark mb-2 font-semibold">Start Learning Today</span>
+                        <h2 class="display-6 fw-bold mb-3">Ready to become an Excel Power User?</h2>
+                        <p class="text-white-50 mb-4">
+                            Fill out the form to request a detailed syllabus preview, access free sample lessons, or reserve your seat in the upcoming cohort.
+                        </p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="p-3 bg-white bg-opacity-10 rounded-circle">
+                                <i class="bi bi-shield-check fs-2 text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-white p-4 p-md-5 rounded-4 text-dark shadow-lg">
+                            <h4 class="fw-bold mb-4">Reserve Your Seat</h4>
+                              <h1> Call Or Whatsapp Now : +91-94145-37189</h1>  
+                            <div id="formAlert" class="alert alert-success mt-3 d-none" role="alert">
+                                Enrollment request submitted successfully! Check your inbox for details.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <a class="d-flex align-items-center text-white mb-3 text-decoration-none" href="#">
+                        <i class="bi bi-file-earmark-excel-fill text-excel me-2 fs-2"></i>
+                        <span class="fw-bold fs-4">ExcelProHub</span>
+                    </a>
+                    <p class="small text-white-50">
+                        Empowering finance, business, and operations professionals with world-class Excel, Power Query, and BI skillsets.
+                    </p>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 ms-auto">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#overview">Overview</a></li>
+                        <li class="mb-2"><a href="#syllabus">Syllabus</a></li>
+                        <li class="mb-2"><a href="#projects">Projects</a></li>
+                        <li class="mb-2"><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Excel Shortcuts PDF</a></li>
+                        <li class="mb-2"><a href="#">Formula Cheat Sheet</a></li>
+                        <li class="mb-2"><a href="#">Sample Practice Data</a></li>
+                        <li class="mb-2"><a href="#">Student Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-3">Contact Us</h6>
+                    <p class="small text-white-50 mb-2"><i class="bi bi-envelope me-2"></i> contactus@pankajcomputers.com</p>
+                    <p class="small text-white-50"><i class="bi bi-telephone me-2"></i> +91 (94145) 37189 - EXCEL</p>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small text-white-50 pt-2">
+                <p class="mb-2 mb-md-0">&copy; 2026 Pankaj Computers - Excel Hub. All rights reserved.</p>
+                <div class="d-flex gap-3">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Interactive Lead Form handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const alertBox = document.getElementById('formAlert');
+            alertBox.classList.remove('d-none');
+            event.target.reset();
+            
+            setTimeout(() => {
+                alertBox.classList.add('d-none');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
