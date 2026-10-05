@@ -1,0 +1,142 @@
+[
+  {
+    "id": "gen-ai",
+    "title": "Generative AI & Prompt Engineering",
+    "category": "ai",
+    "categoryLabel": "AI & Future Skills",
+    "badge": "Flagship Masterclass",
+    "badgeClass": "bg-primary",
+    "isFeatured": true,
+    "duration": "30 Hours",
+    "mode": "Offline & Online",
+    "level": "Zero Coding Required",
+    "description": "Master Gemini, Claude, Midjourney, SEO automation, and productivity tools to automate content and workflows.",
+    "topics": [
+      "Foundations of Generative AI & Prompting",
+      "Zero-Shot & Few-Shot Prompt Engineering",
+      "Chain-of-Thought & Reasoning Frameworks",
+      "Copywriting & AI Brand Voice Setup",
+      "SEO & Web Content Automation",
+      "Midjourney & DALL-E Visual Design",
+      "AI Video & ElevenLabs Audio Generation",
+      "Custom GPTs & Automation Workflows",
+      "AI Ethics, Fact-Checking & Editing",
+      "Capstone Live Industry Project"
+    ]
+  },
+  {
+    "id": "fullstack-dev",
+    "title": "Full-Stack Web Development",
+    "category": "development",
+    "categoryLabel": "Development",
+    "badge": "Popular",
+    "badgeClass": "bg-success",
+    "isFeatured": false,
+    "duration": "6 Months",
+    "mode": "Practical Labs",
+    "level": "Beginner to Advanced",
+    "description": "Learn HTML5, CSS3, JavaScript ES6+, Bootstrap 5, React, Node.js, and Firebase to build modern web apps.",
+    "topics": [
+      "HTML5, CSS3 & Responsive Web Design",
+      "Bootstrap 5 & UI Design Systems",
+      "JavaScript ES6+ & DOM Manipulation",
+      "React.js Components & State Management",
+      "Node.js, Express & REST APIs",
+      "Firebase Database & Authentication",
+      "Git, GitHub & Web Deployment"
+    ]
+  },
+  {
+    "id": "python-ai",
+    "title": "Python Programming & Data Science",
+    "category": "development",
+    "categoryLabel": "Development",
+    "badge": "High Demand",
+    "badgeClass": "bg-info text-dark",
+    "isFeatured": false,
+    "duration": "3 Months",
+    "mode": "Lab Hands-On",
+    "level": "Beginner Friendly",
+    "description": "Master core Python logic, object-oriented programming, NumPy, Pandas, and basic Machine Learning models.",
+    "topics": [
+      "Python Basics & Data Structures",
+      "Object-Oriented Programming (OOP)",
+      "File Handling & Automation Scripts",
+      "Data Analysis with Pandas & NumPy",
+      "Data Visualization with Matplotlib",
+      "Intro to Machine Learning Models"
+    ]
+  },
+  {
+    "id": "tally-prime",
+    "title": "Accounting with GST",
+    "category": "accounting",
+    "categoryLabel": "Accounting",
+    "badge": "Job Ready",
+    "badgeClass": "bg-warning text-dark",
+    "isFeatured": false,
+    "duration": "3 Months",
+    "mode": "Practical Accounting",
+    "level": "Basic Computer Needed",
+    "description": "Comprehensive financial accounting training covering GST, voucher entries, inventory management, and payroll.",
+    "topics": [
+      "Fundamentals of Accounting",
+      "Tally Prime Setup & Company Creation",
+      "Busy Software",
+      "Zoho Books (Online Cloud-based)",
+      "GST Calculation & E-Way Bills",
+      "Inventory & Stock Management",
+      "Payroll & TDS Filing Essentials",
+      "Financial Reporting & Auditing"
+    ]
+  },
+  {
+  "id": "advance-excel",
+  "title": "Advance Excel & Data Analytics",
+  "category": "accounting",
+  "categoryLabel": "Data Analytics & Excel",
+  "badge": "60 Hours Masterclass",
+  "badgeClass": "bg-primary",
+  "isFeatured": true,
+  "duration": "60 Hours",
+  "mode": "Live + Practical Labs",
+  "level": "Beginner to Advanced",
+  "description": "Transform raw data into high-impact business insights. Master modern lookup functions, dynamic arrays, Power Query ETL, Power Pivot DAX, and VBA Macro automation.",
+  "topics": [
+    "Custom Formattings",
+    "Logical Testing",
+    "Data Cleanup & Date Functions",
+    "Structured Tables",
+    "AI Ethics, Fact-Checking & Editing",
+    "XLOOKUP, XMATCH & INDEX-MATCH Two-Way Lookups",
+    "Conditional Summaries (SUMIFS, COUNTIFS)",
+    "Interactive Dashboard Slicers, Timelines & What-If Analysis",
+    "Power Query Data Extraction, Unpivoting & Automated ETL",
+    "Power Pivot Data Modeling, Star Schemas & DAX Measures",
+    "VBA Syntax, Macros Recording, User Forms & Automation Scripts"
+  ]
+  },
+  {
+    "id": "ccc-basic",
+    "title": "Office Expert",
+    "category": "basics",
+    "categoryLabel": "Basic Skills",
+    "badge": "Essential",
+    "badgeClass": "bg-dark",
+    "isFeatured": false,
+    "duration": "75 Hours",
+    "mode": "Fast Track",
+    "level": "Zero Experience",
+    "description": "Ideal for students and beginners aiming to gain confidence in daily computer work, typing, and internet usage.",
+    "topics": [
+      "Computer Operation & File Management",
+      "English & Hindi Typing Skills",
+      "Microsoft Word 365",
+      "Microsoft Excel 365",
+      "Microsoft Power Point 365",
+      "Canva",
+      "Internet Browsing & Online Banking",
+      "Online Form Filling & Certificate Verification"
+    ]
+  }
+]
