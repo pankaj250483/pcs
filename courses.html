@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Courses - Pankaj Computers Anupgarh</title>
-  
-    <link href="style.css" rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="images/pcs.png">
 
   <!-- Fixed Bootstrap 5.3 CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-  
+
   <!-- Vue 3 CDN -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <style>
     body {
-     /* background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); */
+      /* background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); */
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: #1e293b;
       min-height: 100vh;
     }
+
     .brand-header {
       /* background: #ffffff; */
       border-bottom: 2px solid #0d6efd;
     }
+
     .course-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -34,15 +37,18 @@
       transition: all 0.3s ease;
       height: 100%;
     }
+
     .course-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 24px rgba(13, 110, 253, 0.12);
       border-color: #93c5fd;
     }
+
     .featured-card {
       background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
       border: 2px solid #10b981;
     }
+
     .btn-whatsapp {
       background-color: #25d366;
       color: white;
@@ -51,16 +57,19 @@
       transition: all 0.2s ease;
       text-decoration: none;
     }
+
     .btn-whatsapp:hover {
       background-color: #1eb857;
       color: white;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     }
+
     .filter-btn {
       border-radius: 50rem;
       padding: 0.4rem 1.2rem;
       font-weight: 500;
     }
+
     .floating-wa {
       position: fixed;
       bottom: 20px;
@@ -68,216 +77,247 @@
       z-index: 999;
       box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
     }
+    
   </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<include src="header.html"></include>
-<div class="container-fluid p-5 bg-blue">
-        <div class="row justify-content-around text-center">
-          <div class="col-md-10 p-2">
-      <h2 class="fw-bold text-light mb-2">Empower Your Career with In-Demand IT Skills</h2>
-      <p class="lead mb-3 text-white-50 fs-6">Practical, Job-Oriented Computer Courses & Future Tech Education in Anupgarh</p>
-          </div>
-        </div>
-      </div>
-<div id="app">
-
-  <main class="container my-4">
-
-    <!-- Loading State -->
-    <div v-if="loading" class="text-center py-5">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading courses...</span>
-      </div>
-      <p class="mt-2 text-muted">Fetching course details...</p>
-    </div>
-
-    <!-- Error State -->
-    <div v-else-if="error" class="alert alert-danger text-center" role="alert">
-      {{ error }}
-    </div>
-
-    <div v-else>
-      <!-- Category Filter Pills -->
-      <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
-        <button 
-          v-for="cat in categories" 
-          :key="cat.id"
-          @click="activeCategory = cat.id"
-          class="btn filter-btn"
-          :class="activeCategory === cat.id ? 'btn-primary' : 'btn-light text-secondary bg-white border'"
-        >
-          <i :class="cat.icon + ' me-1'"></i> {{ cat.name }}
-        </button>
-      </div>
-
-      <!-- Course Cards Grid -->
-      <div class="row g-4">
-        <div v-for="course in filteredCourses" :key="course.id" class="col-md-6 col-lg-4">
-          <div class="course-card p-4 d-flex flex-column justify-content-between" :class="{ 'featured-card': course.isFeatured }">
-            <div>
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <span class="badge" :class="course.badgeClass">{{ course.badge }}</span>
-                <span class="text-muted small"><i class="bi bi-clock me-1"></i>{{ course.duration }}</span>
-              </div>
-              <h3 class="h5 fw-bold mb-2">{{ course.title }}</h3>
-              <p class="text-secondary small mb-3">{{ course.description }}</p>
-              
-              <div class="mb-3">
-                <span class="badge bg-light text-dark border me-1">{{ course.mode }}</span>
-                <span class="badge bg-light text-dark border">{{ course.level }}</span>
-              </div>
-
-              <!-- Quick Topics List -->
-              <ul class="list-unstyled small text-muted mb-4">
-                <li v-for="(topic, idx) in course.topics.slice(0, 4)" :key="idx" class="mb-1">
-                  <i class="bi bi-check-circle-fill text-success me-1"></i> {{ topic }}
-                </li>
-                <li v-if="course.topics.length > 4" class="text-primary fw-semibold mt-1">
-                  + {{ course.topics.length - 4 }} more topics...
-                </li>
-              </ul>
-            </div>
-
-            <div class="pt-3 border-top d-flex gap-2">
-              <button @click="openModal(course)" class="btn btn-outline-primary btn-sm rounded-pill flex-grow-1">
-                View Curriculum
-              </button>
-              <a :href="getWhatsAppLink('Interested in ' + course.title)" target="_blank" class="btn btn-whatsapp btn-sm rounded-pill px-3 d-flex align-items-center gap-1">
-                <i class="bi bi-whatsapp"></i> Enroll
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Course Curriculum Modal -->
-  <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content rounded-4 border-0">
-        <div class="modal-header border-bottom-0 pb-0" v-if="selectedCourse">
-          <div>
-            <span class="badge mb-1" :class="selectedCourse.badgeClass">{{ selectedCourse.badge }}</span>
-            <h4 class="modal-title fw-bold" id="courseModalLabel">{{ selectedCourse.title }}</h4>
-          </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" v-if="selectedCourse">
-          <p class="text-muted mb-3">{{ selectedCourse.description }}</p>
-          <div class="d-flex gap-3 mb-3 small">
-            <div><i class="bi bi-clock text-primary me-1"></i> <strong>Duration:</strong> {{ selectedCourse.duration }}</div>
-            <div><i class="bi bi-geo-alt text-primary me-1"></i> <strong>Mode:</strong> {{ selectedCourse.mode }}</div>
-          </div>
-          <h6 class="fw-bold text-primary mb-2">Full Course Topics:</h6>
-          <ul class="list-group list-group-flush mb-3">
-            <li v-for="(topic, index) in selectedCourse.topics" :key="index" class="list-group-item bg-light rounded mb-1 border-0">
-              <i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> {{ topic }}
-            </li>
-          </ul>
-        </div>
-        <div class="modal-footer border-top-0 pt-0" v-if="selectedCourse">
-          <button type="button" class="btn btn-light rounded-pill" data-bs-dismiss="modal">Close</button>
-          <a :href="getWhatsAppLink('I want to register for ' + selectedCourse.title)" target="_blank" class="btn btn-whatsapp rounded-pill px-4">
-            <i class="bi bi-whatsapp me-1"></i> Send WhatsApp Enquiry
-          </a>
-        </div>
+  <!-- HEADER -->
+  <include src="header.html"></include>
+  <div class="container-fluid p-5 bg-blue">
+    <div class="row justify-content-around text-center">
+      <div class="col-md-10 p-2">
+        <h2 class="fw-bold text-light mb-2">Empower Your Career with In-Demand IT Skills</h2>
+        <p class="lead mb-3 text-white-50 fs-6">Practical, Job-Oriented Computer Courses & Future Tech Education in
+          Anupgarh</p>
       </div>
     </div>
   </div>
+  <div id="app">
 
-  <!-- Floating WhatsApp Action Button -->
-  <a :href="getWhatsAppLink('Hello Pankaj Computers, I want to inquire about courses')" target="_blank" class="btn btn-whatsapp floating-wa rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 58px; height: 58px;">
-    <i class="bi bi-whatsapp fs-3"></i>
-  </a>
+    <main class="container my-4">
+
+      <!-- Loading State -->
+      <div v-if="loading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading courses...</span>
+        </div>
+        <p class="mt-2 text-muted">Fetching course details...</p>
+      </div>
+
+      <!-- Error State -->
+      <div v-else-if="error" class="alert alert-danger text-center" role="alert">
+        {{ error }}
+      </div>
+
+      <div v-else>
+        <!-- Category Filter Pills -->
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+          <button v-for="cat in categories" :key="cat.id" @click="activeCategory = cat.id" class="btn filter-btn"
+            :class="activeCategory === cat.id ? 'btn-primary' : 'btn-light text-secondary bg-white border'">
+            <i :class="cat.icon + ' me-1'"></i> {{ cat.name }}
+          </button>
+        </div>
+
+        <!-- Course Cards Grid -->
+        <div class="row g-4">
+          <div v-for="course in filteredCourses" :key="course.id" class="col-md-6 col-lg-4">
+            <div class="course-card p-4 d-flex flex-column justify-content-between"
+              :class="{ 'featured-card': course.isFeatured }">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <span class="badge" :class="course.badgeClass">{{ course.badge }}</span>
+                  <span class="text-muted small"><i class="bi bi-clock me-1"></i>{{ course.duration }}</span>
+                </div>
+                <h3 class="h5 fw-bold mb-2">{{ course.title }}</h3>
+                <p class="text-secondary small mb-3">{{ course.description }}</p>
+
+                <div class="mb-3">
+                  <span class="badge bg-light text-dark border me-1">{{ course.mode }}</span>
+                  <span class="badge bg-light text-dark border">{{ course.level }}</span>
+                </div>
+
+                <!-- Quick Topics List -->
+                <ul class="list-unstyled small text-muted mb-4">
+                  <li v-for="(topic, idx) in course.topics.slice(0, 4)" :key="idx" class="mb-1">
+                    <i class="bi bi-check-circle-fill text-success me-1"></i> {{ topic }}
+                  </li>
+                  <li v-if="course.topics.length > 4" class="text-primary fw-semibold mt-1">
+                    + {{ course.topics.length - 4 }} more topics...
+                  </li>
+                </ul>
+              </div>
+
+              <div class="pt-3 border-top d-flex gap-2">
+                <button @click="openModal(course)" class="btn btn-outline-primary btn-sm rounded-pill flex-grow-1">
+                  View Curriculum
+                </button>
+                <a :href="getWhatsAppLink('Interested in ' + course.title)" target="_blank"
+                  class="btn btn-whatsapp btn-sm rounded-pill px-3 d-flex align-items-center gap-1">
+                  <i class="bi bi-whatsapp"></i> Enroll
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Course Curriculum Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0">
+          <div class="modal-header border-bottom-0 pb-0" v-if="selectedCourse">
+            <div>
+              <span class="badge mb-1" :class="selectedCourse.badgeClass">{{ selectedCourse.badge }}</span>
+              <h4 class="modal-title fw-bold" id="courseModalLabel">{{ selectedCourse.title }}</h4>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" v-if="selectedCourse">
+            <p class="text-muted mb-3">{{ selectedCourse.description }}</p>
+            <div class="d-flex gap-3 mb-3 small">
+              <div><i class="bi bi-clock text-primary me-1"></i> <strong>Duration:</strong>
+                {{ selectedCourse.duration }}</div>
+              <div><i class="bi bi-geo-alt text-primary me-1"></i> <strong>Mode:</strong> {{ selectedCourse.mode }}
+              </div>
+            </div>
+            <h6 class="fw-bold text-primary mb-2">Full Course Topics:</h6>
+            <ul class="list-group list-group-flush mb-3">
+              <li v-for="(topic, index) in selectedCourse.topics" :key="index"
+                class="list-group-item bg-light rounded mb-1 border-0">
+                <i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> {{ topic }}
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer border-top-0 pt-0" v-if="selectedCourse">
+            <button type="button" class="btn btn-light rounded-pill" data-bs-dismiss="modal">Close</button>
+            <a :href="getWhatsAppLink('I want to register for ' + selectedCourse.title)" target="_blank"
+              class="btn btn-whatsapp rounded-pill px-4">
+              <i class="bi bi-whatsapp me-1"></i> Send WhatsApp Enquiry
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a :href="getWhatsAppLink('Hello Pankaj Computers, I want to inquire about courses')" target="_blank"
+      class="btn btn-whatsapp floating-wa rounded-circle p-3 d-flex align-items-center justify-content-center"
+      style="width: 58px; height: 58px;">
+      <i class="bi bi-whatsapp fs-3"></i>
+    </a>
 
 
-</div>
+  </div>
 
   <!-- FOOTER -->
-<include src="footer.html"></include>
+  <include src="footer.html"></include>
 
-<!-- Fixed Bootstrap 5 JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Fixed Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Vue 3 Script -->
-<script>
-  const { createApp, ref, computed, onMounted } = Vue;
+  <!-- Vue 3 Script -->
+  <script>
+    const {
+      createApp,
+      ref,
+      computed,
+      onMounted
+    } = Vue;
 
-  createApp({
-    setup() {
-      const courses = ref([]);
-      const loading = ref(true);
-      const error = ref(null);
-      const activeCategory = ref('all');
-      const selectedCourse = ref(null);
-      let bsModal = null;
+    createApp({
+      setup() {
+        const courses = ref([]);
+        const loading = ref(true);
+        const error = ref(null);
+        const activeCategory = ref('all');
+        const selectedCourse = ref(null);
+        let bsModal = null;
 
-      const categories = [
-        { id: 'all', name: 'All Courses', icon: 'bi-grid-fill' },
-        { id: 'ai', name: 'Generative AI', icon: 'bi-cpu-fill' },
-        { id: 'development', name: 'Coding & Web', icon: 'bi-code-slash' },
-        { id: 'accounting', name: 'Tally & GST', icon: 'bi-calculator-fill' },
-        { id: 'basics', name: 'Basic & Typing', icon: 'bi-keyboard-fill' }
-      ];
-
-      const fetchCourses = async () => {
-        try {
-          const response = await fetch('./courses.json');
-          if (!response.ok) {
-            throw new Error('Failed to load courses.json file');
+        const categories = [{
+            id: 'all',
+            name: 'All Courses',
+            icon: 'bi-grid-fill'
+          },
+          {
+            id: 'ai',
+            name: 'Generative AI',
+            icon: 'bi-cpu-fill'
+          },
+          {
+            id: 'development',
+            name: 'Coding & Web',
+            icon: 'bi-code-slash'
+          },
+          {
+            id: 'accounting',
+            name: 'Tally & GST',
+            icon: 'bi-calculator-fill'
+          },
+          {
+            id: 'basics',
+            name: 'Basic & Typing',
+            icon: 'bi-keyboard-fill'
           }
-          courses.value = await response.json();
-        } catch (err) {
-          error.value = 'Unable to load course data. Please make sure courses.json is placed in the same folder.';
-          console.error(err);
-        } finally {
-          loading.value = false;
-        }
-      };
+        ];
 
-      const filteredCourses = computed(() => {
-        if (activeCategory.value === 'all') {
-          return courses.value;
-        }
-        return courses.value.filter(c => c.category === activeCategory.value);
-      });
+        const fetchCourses = async () => {
+          try {
+            const response = await fetch('./courses.json');
+            if (!response.ok) {
+              throw new Error('Failed to load courses.json file');
+            }
+            courses.value = await response.json();
+          } catch (err) {
+            error.value =
+              'Unable to load course data. Please make sure courses.json is placed in the same folder.';
+            console.error(err);
+          } finally {
+            loading.value = false;
+          }
+        };
 
-      const getWhatsAppLink = (message) => {
-        const phone = '919414537189';
-        return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      };
+        const filteredCourses = computed(() => {
+          if (activeCategory.value === 'all') {
+            return courses.value;
+          }
+          return courses.value.filter(c => c.category === activeCategory.value);
+        });
 
-      const openModal = (course) => {
-        selectedCourse.value = course;
-        if (!bsModal) {
-          bsModal = new bootstrap.Modal(document.getElementById('courseModal'));
-        }
-        bsModal.show();
-      };
+        const getWhatsAppLink = (message) => {
+          const phone = '919414537189';
+          return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        };
 
-      onMounted(() => {
-        fetchCourses();
-      });
+        const openModal = (course) => {
+          selectedCourse.value = course;
+          if (!bsModal) {
+            bsModal = new bootstrap.Modal(document.getElementById('courseModal'));
+          }
+          bsModal.show();
+        };
 
-      return {
-        courses,
-        loading,
-        error,
-        categories,
-        activeCategory,
-        filteredCourses,
-        selectedCourse,
-        getWhatsAppLink,
-        openModal
-      };
-    }
-  }).mount('#app');
+        onMounted(() => {
+          fetchCourses();
+        });
 
-      // Header/Footer include script
+        return {
+          courses,
+          loading,
+          error,
+          categories,
+          activeCategory,
+          filteredCourses,
+          selectedCourse,
+          getWhatsAppLink,
+          openModal
+        };
+      }
+    }).mount('#app');
+
+    // Header/Footer include script
     let includes = document.getElementsByTagName('include');
     for (var i = 0; i < includes.length; i++) {
       let include = includes[i];
@@ -293,6 +333,7 @@
     function load_file(filename, callback) {
       fetch(filename).then(response => response.text()).then(text => callback(text));
     }
-</script>
+  </script>
 </body>
+
 </html>
