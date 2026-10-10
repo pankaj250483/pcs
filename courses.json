@@ -1,5 +1,71 @@
 [
   {
+    "id":"web development front-end",
+    "title":"Front-End Web Development",
+    "category":"development",
+    "categoryLabel":"Development",
+    "badge":"Popular",
+    "badgeClass":"bg-success",
+    "isFeatured":false,
+    "duration":"4 Months",
+    "mode":"Practical Labs",
+    "level":"Beginner to Advanced",
+    "description":"Learn HTML5, CSS3, JavaScript ES6+, Bootstrap 5, React, and build modern web apps with responsive design.",
+    "topics":[
+      "Web Basics: HTML5, CSS3 & Responsive Design",
+      "Bootstrap 5 & UI Design Systems",
+      "JavaScript ES6+ & DOM Manipulation",
+      "React.js Components & State Management",
+      "CMS (WordPress and Wix)"
+    ]
+  },
+  {
+    "id":"web development back-end",
+    "title":"Back-End Web Development",
+    "category":"development",
+    "categoryLabel":"Development",
+    "badge":"Popular",
+    "badgeClass":"bg-success",
+    "isFeatured":false,
+    "duration":"4 Months",
+    "mode":"Practical Labs",
+    "level":"Beginner to Advanced",
+    "description":"Learn Node.js, Express, REST APIs, MongoDB, and Firebase to build server-side applications and databases.",
+    "topics":[
+      "Web Management with Node.js & Express",
+      "Database Management with MongoDB & Firebase",
+      "SQL & NoSQL Databases",
+      "XML & Web Services",
+      "PHP",
+      "Node.js, Express & REST APIs",
+      "Google Cloud Platform",
+      "Serverless Architecture & Deployment"
+    ]
+  },
+  {
+    "id": "fullstack-dev",
+    "title": "Full-Stack Web Development",
+    "category": "development",
+    "categoryLabel": "Development",
+    "badge": "High Demand",
+    "badgeClass": "bg-primary",
+    "isFeatured": true,
+    "duration": "10 Months",
+    "mode": "Practical Labs",
+    "level": "Beginner to Advanced",
+    "description": "Learn HTML5, CSS3, JavaScript ES6+, Bootstrap 5, React, Node.js, and Firebase to build modern web apps.",
+    "topics": [
+      "HTML5, CSS3 & Responsive Web Design",
+      "Bootstrap 5 & UI Design Systems",
+      "JavaScript ES6+ & DOM Manipulation",
+      "React.js Components & State Management",
+      "Node.js, Express & REST APIs",
+      "Firebase Database & Authentication",
+      "Git, GitHub & Web Deployment",
+      "CMS (WordPress and Wix)"
+    ]
+  },
+  {
     "id": "gen-ai",
     "title": "Generative AI & Prompt Engineering",
     "category": "ai",
@@ -22,29 +88,6 @@
       "Custom GPTs & Automation Workflows",
       "AI Ethics, Fact-Checking & Editing",
       "Capstone Live Industry Project"
-    ]
-  },
-  {
-    "id": "fullstack-dev",
-    "title": "Full-Stack Web Development",
-    "category": "development",
-    "categoryLabel": "Development",
-    "badge": "Popular",
-    "badgeClass": "bg-success",
-    "isFeatured": false,
-    "duration": "6 Months",
-    "mode": "Practical Labs",
-    "level": "Beginner to Advanced",
-    "description": "Learn HTML5, CSS3, JavaScript ES6+, Bootstrap 5, React, Node.js, and Firebase to build modern web apps.",
-    "topics": [
-      "HTML5, CSS3 & Responsive Web Design",
-      "Bootstrap 5 & UI Design Systems",
-      "JavaScript ES6+ & DOM Manipulation",
-      "React.js Components & State Management",
-      "Node.js, Express & REST APIs",
-      "Firebase Database & Authentication",
-      "Git, GitHub & Web Deployment",
-      "CMS (WordPress and Wix)"
     ]
   },
   {
