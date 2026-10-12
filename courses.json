@@ -182,5 +182,32 @@
       "Internet Browsing & Online Banking",
       "Online Form Filling & Certificate Verification"
     ]
+  },
+  {
+    "id": "Employability-Skills",
+    "title": "Employability Skills",
+    "category": "basics",
+    "categoryLabel": "Basic Skills",
+    "badge": "Essential",
+    "badgeClass": "bg-dark",
+    "isFeatured": false,
+    "duration": "75 Hours",
+    "mode": "Fast Track",
+    "level": "Zero Experience",
+    "description": "Develop essential skills for employability, including communication, teamwork, and professional development.",
+    "topics": [
+      "Introduction to Employability Skills",
+      "Constutional Values: Citizenship, Fundamental Rights & Duties",
+      "Becoming a Professional in the 21st Century",
+      "Communication Skills",
+      "English litracy & Writing Skills",
+      "Essential Digital Skills",
+      "Diversity & Inclusion",
+      "Financial and Legal Literacy",
+      "Career Development & Goal Setting",
+      "Customer Service & Entrepreneurship",
+      "IT Litracy",
+      "Sustainable Career"
+    ]
   }
 ]
