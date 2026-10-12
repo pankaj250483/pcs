@@ -189,7 +189,7 @@
     "category": "basics",
     "categoryLabel": "Basic Skills",
     "badge": "Essential",
-    "badgeClass": "bg-dark",
+    "badgeClass": "bg-secondary",
     "isFeatured": false,
     "duration": "75 Hours",
     "mode": "Fast Track",
