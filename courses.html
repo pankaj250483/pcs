@@ -1,95 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Courses - Pankaj Computers Anupgarh</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pankaj Computers</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/pcs.png">
+    <script src="https://kit.fontawesome.com/3744db1db6.js" crossorigin="anonymous"></script>
 
-  <link href="style.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="images/pcs.png">
+    <!-- Bootstrap Icons (needed by the new courses section) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
-  <!-- Fixed Bootstrap 5.3 CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-  <!-- Vue 3 CDN -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      body {
+        background-color: #ffffff;
+      }
 
-  <style>
-    body {
-      /* background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); */
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: #1e293b;
-      min-height: 100vh;
-    }
+      /* New courses styles - scoped to #app so header/footer are not affected */
+      #app {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        color: #1e293b;
+      }
 
-    .brand-header {
-      /* background: #ffffff; */
-      border-bottom: 2px solid #0d6efd;
-    }
+      .course-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 1.25rem;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
 
-    .course-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 1.25rem;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(13, 110, 253, 0.12);
+        border-color: #93c5fd;
+      }
 
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(13, 110, 253, 0.12);
-      border-color: #93c5fd;
-    }
+      .featured-card {
+        background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+        border: 2px solid #10b981;
+      }
 
-    .featured-card {
-      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
-      border: 2px solid #10b981;
-    }
+      .btn-whatsapp {
+        background-color: #25d366;
+        color: white;
+        font-weight: 600;
+        border-radius: 50rem;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
 
-    .btn-whatsapp {
-      background-color: #25d366;
-      color: white;
-      font-weight: 600;
-      border-radius: 50rem;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
+      .btn-whatsapp:hover {
+        background-color: #1eb857;
+        color: white;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      }
 
-    .btn-whatsapp:hover {
-      background-color: #1eb857;
-      color: white;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-    }
+      .filter-btn {
+        border-radius: 50rem;
+        padding: 5px 1.2rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
 
-    .filter-btn {
-  border-radius: 50rem;
-  padding: 5px 1.2rem;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-    .floating-wa {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-    }
-    
-  </style>
+      .floating-wa {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      }
+    </style>
 </head>
+<body oncontextmenu="return false;" class="noselect">
 
-<body>
-
-  <!-- HEADER -->
+  <!-- HEADER (unchanged) -->
   <include src="header.html"></include>
-  
+
+  <!-- ===== NEW COURSES CONTENT (from courses.html) ===== -->
   <div class="container-fluid p-5 bg-blue">
     <div class="row justify-content-around text-center">
       <div class="col-md-10 p-2">
@@ -99,6 +93,7 @@
       </div>
     </div>
   </div>
+
   <div id="app">
 
     <main class="container my-4">
@@ -214,131 +209,101 @@
       <i class="bi bi-whatsapp fs-3"></i>
     </a>
 
-
   </div>
+  <!-- ===== END NEW COURSES CONTENT ===== -->
 
-  <!-- FOOTER -->
+  <!-- footer (unchanged) -->
   <include src="footer.html"></include>
 
-  <!-- Fixed Bootstrap 5 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Bundle with Popper (unchanged from old file) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Vue 3 Script -->
-  <script>
-    const {
-      createApp,
-      ref,
-      computed,
-      onMounted
-    } = Vue;
+    <!-- Vue 3 courses app -->
+    <script>
+      const { createApp, ref, computed, onMounted } = Vue;
 
-    createApp({
-      setup() {
-        const courses = ref([]);
-        const loading = ref(true);
-        const error = ref(null);
-        const activeCategory = ref('all');
-        const selectedCourse = ref(null);
-        let bsModal = null;
+      createApp({
+        setup() {
+          const courses = ref([]);
+          const loading = ref(true);
+          const error = ref(null);
+          const activeCategory = ref('all');
+          const selectedCourse = ref(null);
+          let bsModal = null;
 
-        const categories = [{
-            id: 'all',
-            name: 'All Courses',
-            icon: 'bi-grid-fill'
-          },
-          {
-            id: 'ai',
-            name: 'Generative AI',
-            icon: 'bi-cpu-fill'
-          },
-          {
-            id: 'development',
-            name: 'Coding & Web',
-            icon: 'bi-code-slash'
-          },
-          {
-            id: 'accounting',
-            name: 'Tally & GST',
-            icon: 'bi-calculator-fill'
-          },
-          {
-            id: 'basics',
-            name: 'Basic & Typing',
-            icon: 'bi-keyboard-fill'
-          }
-        ];
+          const categories = [
+            { id: 'all', name: 'All Courses', icon: 'bi-grid-fill' },
+            { id: 'ai', name: 'Generative AI', icon: 'bi-cpu-fill' },
+            { id: 'development', name: 'Coding & Web', icon: 'bi-code-slash' },
+            { id: 'accounting', name: 'Tally & GST', icon: 'bi-calculator-fill' },
+            { id: 'basics', name: 'Basic & Typing', icon: 'bi-keyboard-fill' }
+          ];
 
-        const fetchCourses = async () => {
-          try {
-            const response = await fetch('./courses.json');
-            if (!response.ok) {
-              throw new Error('Failed to load courses.json file');
+          const fetchCourses = async () => {
+            try {
+              const response = await fetch('./courses.json');
+              if (!response.ok) {
+                throw new Error('Failed to load courses.json file');
+              }
+              courses.value = await response.json();
+            } catch (err) {
+              error.value = 'Unable to load course data. Please make sure courses.json is placed in the same folder.';
+              console.error(err);
+            } finally {
+              loading.value = false;
             }
-            courses.value = await response.json();
-          } catch (err) {
-            error.value =
-              'Unable to load course data. Please make sure courses.json is placed in the same folder.';
-            console.error(err);
-          } finally {
-            loading.value = false;
-          }
-        };
+          };
 
-        const filteredCourses = computed(() => {
-          if (activeCategory.value === 'all') {
-            return courses.value;
-          }
-          return courses.value.filter(c => c.category === activeCategory.value);
-        });
+          const filteredCourses = computed(() => {
+            if (activeCategory.value === 'all') {
+              return courses.value;
+            }
+            return courses.value.filter(c => c.category === activeCategory.value);
+          });
 
-        const getWhatsAppLink = (message) => {
-          const phone = '919414537189';
-          return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        };
+          const getWhatsAppLink = (message) => {
+            const phone = '919414537189';
+            return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+          };
 
-        const openModal = (course) => {
-          selectedCourse.value = course;
-          if (!bsModal) {
-            bsModal = new bootstrap.Modal(document.getElementById('courseModal'));
-          }
-          bsModal.show();
-        };
+          const openModal = (course) => {
+            selectedCourse.value = course;
+            if (!bsModal) {
+              bsModal = new bootstrap.Modal(document.getElementById('courseModal'));
+            }
+            bsModal.show();
+          };
 
-        onMounted(() => {
-          fetchCourses();
-        });
+          onMounted(() => {
+            fetchCourses();
+          });
 
-        return {
-          courses,
-          loading,
-          error,
-          categories,
-          activeCategory,
-          filteredCourses,
-          selectedCourse,
-          getWhatsAppLink,
-          openModal
-        };
-      }
-    }).mount('#app');
-
-    // Header/Footer include script
-    let includes = document.getElementsByTagName('include');
-    for (var i = 0; i < includes.length; i++) {
-      let include = includes[i];
-      load_file(includes[i].attributes.src.value, function (text) {
-        include.insertAdjacentHTML('afterend', text);
-        include.remove();
-        if (typeof AOS !== 'undefined') {
-          AOS.refresh();
+          return {
+            courses, loading, error, categories, activeCategory,
+            filteredCourses, selectedCourse, getWhatsAppLink, openModal
+          };
         }
+      }).mount('#app');
+    </script>
+
+    <script>
+      //Initiate Animation AOS Object
+      AOS.init();
+
+      //JS Codes for include nav and footer html files
+      let includes = document.getElementsByTagName('include');
+      for (var i = 0; i < includes.length; i++) {
+      let include = includes[i];
+      load_file(includes[i].attributes.src.value, function(text)
+      {
+          include.insertAdjacentHTML('afterend', text);
+          include.remove();
       });
-    }
-
-    function load_file(filename, callback) {
+      }
+      function load_file(filename, callback) {
       fetch(filename).then(response => response.text()).then(text => callback(text));
-    }
+      }
   </script>
-</body>
-
+  </body>
 </html>
