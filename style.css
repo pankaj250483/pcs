@@ -37,7 +37,7 @@ i
 
 .social:hover
 {
-    color:  var(--blue);
+    color: #000000 !important;
 }
 
 li
