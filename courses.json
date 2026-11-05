@@ -1,5 +1,76 @@
 [
   {
+  "id": "applied-ai-business-workflows",
+  "title": "Applied AI for Business & Workflow Modernization",
+  "category": "artificial intelligence",
+  "categoryLabel": "Artificial Intelligence",
+  "badge": "Trending",
+  "badgeClass": "bg-primary",
+  "isFeatured": true,
+  "duration": "1 Month",
+  "mode": "Practical Labs",
+  "level": "Beginner to Intermediate",
+  "description": "Master generative AI tools, prompt engineering, multimodal document extraction (OCR), spreadsheet automation, and no-code business workflow integration without coding.",
+  "topics": [
+    "Foundations of Generative AI & Foundation Models",
+    "Advanced Prompt Engineering Frameworks",
+    "Multimodal Computer Vision & Document Intelligence (OCR)",
+    "Spreadsheet Automation & Financial Data Analysis",
+    "Customer Interaction & Omnichannel Automation",
+    "Commercial Digital Asset Creation & Cataloging",
+    "Voice AI, Speech-to-Text & Regional Language Processing",
+    "Custom Domain Assistants & Knowledge Bases (No-Code RAG)",
+    "AI for Office Operations & Executive Communication",
+    "AI Ethics, Data Security & Verification Protocols"
+  ]
+},
+{
+    "id": "gen-ai",
+    "title": "Generative AI & Prompt Engineering",
+    "category": "ai",
+    "categoryLabel": "AI & Future Skills",
+    "badge": "Flagship Masterclass",
+    "badgeClass": "bg-primary",
+    "isFeatured": true,
+    "duration": "30 Hours",
+    "mode": "Offline & Online",
+    "level": "Zero Coding Required",
+    "description": "Master Gemini, Claude, Midjourney, SEO automation, and productivity tools to automate content and workflows.",
+    "topics": [
+      "Foundations of Generative AI & Prompting",
+      "Zero-Shot & Few-Shot Prompt Engineering",
+      "Chain-of-Thought & Reasoning Frameworks",
+      "Copywriting & AI Brand Voice Setup",
+      "SEO & Web Content Automation",
+      "Midjourney & DALL-E Visual Design",
+      "AI Video & ElevenLabs Audio Generation",
+      "Custom GPTs & Automation Workflows",
+      "AI Ethics, Fact-Checking & Editing",
+      "Capstone Live Industry Project"
+    ]
+  },
+  {
+    "id": "python-ai",
+    "title": "Python Programming & Data Science",
+    "category": "development",
+    "categoryLabel": "Development",
+    "badge": "High Demand",
+    "badgeClass": "bg-info text-dark",
+    "isFeatured": false,
+    "duration": "3 Months",
+    "mode": "Lab Hands-On",
+    "level": "Beginner Friendly",
+    "description": "Master core Python logic, object-oriented programming, NumPy, Pandas, and basic Machine Learning models.",
+    "topics": [
+      "Python Basics & Data Structures",
+      "Object-Oriented Programming (OOP)",
+      "File Handling & Automation Scripts",
+      "Data Analysis with Pandas & NumPy",
+      "Data Visualization with Matplotlib",
+      "Intro to Machine Learning Models"
+    ]
+  },
+  {
     "id":"web development front-end",
     "title":"Front-End Web Development",
     "category":"development",
@@ -63,52 +134,6 @@
       "Firebase Database & Authentication",
       "Git, GitHub & Web Deployment",
       "CMS (WordPress and Wix)"
-    ]
-  },
-  {
-    "id": "gen-ai",
-    "title": "Generative AI & Prompt Engineering",
-    "category": "ai",
-    "categoryLabel": "AI & Future Skills",
-    "badge": "Flagship Masterclass",
-    "badgeClass": "bg-primary",
-    "isFeatured": true,
-    "duration": "30 Hours",
-    "mode": "Offline & Online",
-    "level": "Zero Coding Required",
-    "description": "Master Gemini, Claude, Midjourney, SEO automation, and productivity tools to automate content and workflows.",
-    "topics": [
-      "Foundations of Generative AI & Prompting",
-      "Zero-Shot & Few-Shot Prompt Engineering",
-      "Chain-of-Thought & Reasoning Frameworks",
-      "Copywriting & AI Brand Voice Setup",
-      "SEO & Web Content Automation",
-      "Midjourney & DALL-E Visual Design",
-      "AI Video & ElevenLabs Audio Generation",
-      "Custom GPTs & Automation Workflows",
-      "AI Ethics, Fact-Checking & Editing",
-      "Capstone Live Industry Project"
-    ]
-  },
-  {
-    "id": "python-ai",
-    "title": "Python Programming & Data Science",
-    "category": "development",
-    "categoryLabel": "Development",
-    "badge": "High Demand",
-    "badgeClass": "bg-info text-dark",
-    "isFeatured": false,
-    "duration": "3 Months",
-    "mode": "Lab Hands-On",
-    "level": "Beginner Friendly",
-    "description": "Master core Python logic, object-oriented programming, NumPy, Pandas, and basic Machine Learning models.",
-    "topics": [
-      "Python Basics & Data Structures",
-      "Object-Oriented Programming (OOP)",
-      "File Handling & Automation Scripts",
-      "Data Analysis with Pandas & NumPy",
-      "Data Visualization with Matplotlib",
-      "Intro to Machine Learning Models"
     ]
   },
   {
