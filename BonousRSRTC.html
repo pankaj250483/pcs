@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>माहवार दैनिक बोनस गणना - RSRTC अनूपगढ़ डिपो</title>
+    <style>
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+        body { background: #f0f3f8; margin: 0; padding: 15px; color: #111; }
+
+        .card { background: #fff; padding: 18px 20px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2, h3, h4 { margin: 4px 0; }
+
+        .rule-badge {
+            background: #e7f3fe;
+            color: #0c5460;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            border-left: 4px solid #0056b3;
+            margin: 8px 0 14px 0;
+            line-height: 1.6;
+        }
+
+        .basic-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .field { display: flex; flex-direction: column; }
+        .field label { font-size: 12px; font-weight: bold; margin-bottom: 4px; color: #333; }
+        .field input, .field select { padding: 8px 10px; border: 1px solid #777; border-radius: 4px; font-size: 14px; background: #fff; }
+
+        /* 12 Months Section (All 31 Days) */
+        .month-box-container {
+            background: #f8fbff;
+            border: 2px solid #0056b3;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 15px;
+        }
+
+        .month-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            margin-top: 8px;
+        }
+
+        .month-table th {
+            background: #e3edf8;
+            color: #004085;
+            font-size: 12px;
+            padding: 6px 4px;
+            border: 1px solid #b6d4fe;
+            text-align: center;
+        }
+
+        .month-table td {
+            padding: 6px 4px;
+            border: 1px solid #b6d4fe;
+            text-align: center;
+        }
+
+        .month-input {
+            width: 90%;
+            padding: 6px 2px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            color: #d90429;
+            border: 1px solid #6c757d;
+            border-radius: 4px;
+            background: #fffef0;
+        }
+
+        /* Live Calculation Bar */
+        .live-bar {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 6px;
+            padding: 10px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13.5px;
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        .live-val { font-size: 17px; color: #0056b3; }
+
+        .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        button {
+            padding: 9px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .btn-blue { background: #0056b3; color: white; }
+        .btn-green { background: #28a745; color: white; }
+        .btn-orange { background: #fd7e14; color: white; }
+        .btn-red { background: #dc3545; color: white; }
+        .btn-mini { background: #e2e6ea; color: #222; border: 1px solid #aaa; padding: 4px 10px; font-size: 12px; }
+        button:hover { opacity: 0.88; }
+
+        /* Printable Sheet */
+        .printable-sheet {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .depot-header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+        .depot-header h2 { font-size: 20px; color: #8b0000; margin: 0; }
+        .depot-header h3 { font-size: 16px; margin: 3px 0; color: #111; }
+        .depot-header p { font-size: 12px; margin: 2px 0; }
+
+        table.voucher-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9.5px;
+            margin-top: 8px;
+        }
+        table.voucher-table th, table.voucher-table td {
+            border: 1px solid #333;
+            padding: 4px 2px;
+            text-align: center;
+        }
+        table.voucher-table th { background: #f1f3f5; }
+        .th-month { font-size: 9px; background: #e9ecef; }
+        td.text-left { text-align: left; padding-left: 4px; }
+        td.text-right { text-align: right; padding-right: 4px; }
+
+        .badge-cpf { background: #d4edda; color: #155724; font-weight: bold; padding: 1px 5px; border-radius: 3px; }
+        .badge-gpf { background: #fff3cd; color: #856404; font-weight: bold; padding: 1px 5px; border-radius: 3px; }
+        .badge-sab { background: #cfe2ff; color: #084298; font-weight: bold; padding: 1px 5px; border-radius: 3px; }
+        .badge-ret { background: #e8daef; color: #5b2c6f; font-weight: bold; padding: 1px 5px; border-radius: 3px; }
+
+        .scheme-group-header {
+            background: #eef4fc !important;
+            font-size: 11px;
+            font-weight: bold;
+            color: #003366;
+            text-align: left !important;
+            padding: 6px 10px !important;
+            border-top: 2px solid #555 !important;
+            border-bottom: 1.5px solid #555 !important;
+        }
+
+        .summary-box {
+            margin-top: 10px;
+            font-size: 12.5px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #888;
+            padding: 8px 12px;
+            background: #fafafa;
+        }
+
+        .signatures {
+            margin-top: 45px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        .sign-box {
+            text-align: center;
+            width: 220px;
+            border-top: 1px dashed #000;
+            padding-top: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .no-print { display: none !important; }
+            .printable-sheet { border: none; padding: 0; }
+            .scheme-group-header { background: #e0e0e0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            @page { size: A4 landscape; margin: 6mm 4mm; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- कंट्रोल पैनल (प्रिंट में नहीं आएगा) -->
+    <div class="card no-print">
+        <h2>🛠️ माहवार दैनिक उपस्थिति बोनस गणना (RSRTC अनूपगढ़ डिपो)</h2>
+        <div class="rule-badge">
+            📌 <b>राजस्थान सरकार नियम:</b> अधिकतम मासिक परिलब्धियां = <b>₹7,000/-</b> | बोनस = <b>30 दिन</b> | एक माह = <b>31 दिन</b><br>
+            सूत्र: <code>(₹7,000 × 30 ÷ 31) = ₹6,774.19</code> → <b>अधिकतम बोनस = ₹6,774/-</b> (12 माह / 372 दिवस पूर्ण होने पर)<br>
+            दैनिक दर: <b>₹18.21/दिन</b> (₹6,774 ÷ 372 दिवस) | आनुपातिक गणना: <code>(₹6,774 ÷ 372) × कुल उपस्थित दिवस</code><br>
+            • <b>CPF / Retired कर्मचारी:</b> 100% नकद बोनस देय (कोई GPF कटौती नहीं)।<br>
+            • <b>GPF / GPF-SAB कर्मचारी:</b> 25% राशि GPF/SAB खाते में जमा, शेष 75% नकद बोनस देय।
+        </div>
+
+        <!-- बुनियादी विवरण -->
+        <div class="basic-row">
+            <div class="field">
+                <label>टोकन / कोड:</label>
+                <input type="text" id="in_code" placeholder="उदा. 4501" value="SRD-101">
+            </div>
+            <div class="field">
+                <label>कर्मचारी का नाम:</label>
+                <input type="text" id="in_name" placeholder="उदा. रामकिशन सारण" value="रामकिशन सारण">
+            </div>
+            <div class="field">
+                <label style="color:#0056b3;">पिता का नाम:</label>
+                <input type="text" id="in_fname" placeholder="उदा. श्री भागीरथ मल" value="श्री भागीरथ मल सारण">
+            </div>
+            <div class="field">
+                <label>पद (Designation):</label>
+                <input type="text" id="in_desig" placeholder="उदा. चालक" value="चालक">
+            </div>
+            <div class="field">
+                <label style="color:#d90429;">योजना / वर्ग (Scheme):</label>
+                <select id="in_scheme" onchange="runLiveCalc()">
+                    <option value="GPF">GPF (25% GPF कटौती + 75% नकद)</option>
+                    <option value="RETIRED">Retired (100% बोनस भुगतान)</option>
+                    <option value="GPF-SAB">GPF-Sab (25% SAB कटौती + 75% नकद)</option>
+                    <option value="CPF">CPF (100% नकद देय)</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>अन्य कटौती/वसूली (₹):</label>
+                <input type="number" id="in_ded" value="0" min="0" oninput="runLiveCalc()">
+            </div>
+        </div>
+
+        <!-- 12 माह (प्रत्येक 31 दिन) की इनपुट ग्रिड -->
+        <div class="month-box-container">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:8px;">
+                <span style="font-size:13px; font-weight:bold; color:#004085;">
+                    📅 12 महीनों के वास्तविक उपस्थित दिन दर्ज करें (प्रत्येक माह 31 दिन मानकर):
+                </span>
+                <div>
+                    <button type="button" class="btn-mini" onclick="setFullYear()">⚡ पूरे 12 माह भरें (372 दिन)</button>
+                    <button type="button" class="btn-mini" onclick="setZeroAll()">सब शून्य (0) करें</button>
+                </div>
+            </div>
+
+            <table class="month-table">
+                <tr>
+                    <th>अप्रैल<br>(31)</th>
+                    <th>मई<br>(31)</th>
+                    <th>जून<br>(31)</th>
+                    <th>जुलाई<br>(31)</th>
+                    <th>अगस्त<br>(31)</th>
+                    <th>सितम्बर<br>(31)</th>
+                    <th>अक्टूबर<br>(31)</th>
+                    <th>नवम्बर<br>(31)</th>
+                    <th>दिसम्बर<br>(31)</th>
+                    <th style="background:#cfe2ff; color:#084298;">जनवरी<br>(31)</th>
+                    <th style="background:#cfe2ff; color:#084298;">फरवरी<br>(31)</th>
+                    <th>मार्च<br>(31)</th>
+                </tr>
+                <tr>
+                    <td><input type="number" id="m_apr" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_may" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_jun" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_jul" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_aug" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_sep" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_oct" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_nov" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_dec" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td style="background:#f0f5ff;"><input type="number" id="m_jan" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td style="background:#f0f5ff;"><input type="number" id="m_feb" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                    <td><input type="number" id="m_mar" class="month-input" min="0" max="31" value="31" oninput="runLiveCalc()"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- लाइव गणना परिणाम पट्टी -->
+        <div class="live-bar">
+            <span>उपस्थित दिन: <span id="barDays" style="font-size:18px; color:#d90429;">372</span> / 372 दिवस</span>
+            <span>सकल बोनस: <span id="barGross" class="live-val">₹6,774</span></span>
+            <span>25% GPF/SAB कटौती: <span id="barGpf" style="font-size:17px; color:#fd7e14;">₹1,694</span></span>
+            <span>अन्य कटौती: <span id="barDed" style="font-size:17px; color:#c00;">₹0</span></span>
+            <span>शुद्ध नकद देय: <span id="barNet" class="live-val" style="font-size:20px; color:#0056b3;">₹5,080</span></span>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-blue" onclick="addEmployee()">➕ यह कर्मचारी तालिका में जोड़ें</button>
+            <button class="btn-orange" onclick="loadSample200()">⚡ 200 कर्मचारियों का डेटा लोड करें</button>
+            <button class="btn-red" onclick="clearTable()">🗑️ पूरी तालिका खाली करें</button>
+            <button class="btn-green" onclick="window.print()">🖨️ वाउचर प्रिंट निकालें (A4 Landscape)</button>
+        </div>
+    </div>
+
+    <!-- वाउचर संलग्नक शीट (A4 Landscape Print View) -->
+    <div class="printable-sheet">
+        <div class="depot-header">
+            <h2>राजस्थान राज्य पथ परिवहन निगम</h2>
+            <h3>अनूपगढ़ डिपो (चूरू)</h3>
+            <p><b>दीपावली तदर्थ बोनस भुगतान पत्रक (योजनावार समूहीकृत) - वित्त वर्ष 2025-26</b></p>
+            <p>अधिकतम देय सीलिंग: ₹6,774/- (गणना: ₹7,000 × 30 ÷ 31, कुल 372 दिवस) | दैनिक दर: ₹18.21/दिन | (CPF/Retired = 100% नकद, GPF/GPF-Sab = 25% कटौती + 75% नकद)</p>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:bold; margin-bottom:6px;">
+            <span>डिपो: अनूपगढ़</span>
+            <span id="sheetDate">दिनांक: </span>
+            <span>कुल कर्मचारी संख्या: <span id="empCount">0</span></span>
+        </div>
+
+        <table class="voucher-table">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 3%;">क्र.</th>
+                    <th rowspan="2" style="width: 5.5%;">टोकन</th>
+                    <th rowspan="2" style="width: 12%;">कर्मचारी का नाम</th>
+                    <th rowspan="2" style="width: 11%;">पिता का नाम</th>
+                    <th rowspan="2" style="width: 7%;">पद</th>
+                    <th rowspan="2" style="width: 5.5%;">योजना</th>
+                    <th colspan="12" style="background:#dee2e6;">माहवार उपस्थित दिवस (प्रत्येक माह 31 दिवस मानकर)</th>
+                    <th rowspan="2" style="width: 4.5%;">कुल दिन</th>
+                    <th rowspan="2" style="width: 5.5%;">सकल बोनस (₹)</th>
+                    <th rowspan="2" style="width: 5.5%;">25% GPF/Sab</th>
+                    <th rowspan="2" style="width: 4.5%;">अन्य कटौती</th>
+                    <th rowspan="2" style="width: 6%;">शुद्ध नकद देय (₹)</th>
+                    <th rowspan="2" style="width: 7.5%;">हस्ताक्षर/पावती</th>
+                    <th rowspan="2" style="width: 3%;" class="no-print">हटाएं</th>
+                </tr>
+                <tr>
+                    <th class="th-month">अप्रे<br>(31)</th>
+                    <th class="th-month">मई<br>(31)</th>
+                    <th class="th-month">जून<br>(31)</th>
+                    <th class="th-month">जुला<br>(31)</th>
+                    <th class="th-month">अग<br>(31)</th>
+                    <th class="th-month">सित<br>(31)</th>
+                    <th class="th-month">अक्टू<br>(31)</th>
+                    <th class="th-month">नव<br>(31)</th>
+                    <th class="th-month">दिस<br>(31)</th>
+                    <th class="th-month" style="background:#cfe2ff;">जन<br>(31)</th>
+                    <th class="th-month" style="background:#cfe2ff;">फर<br>(31)</th>
+                    <th class="th-month">मार्च<br>(31)</th>
+                </tr>
+            </thead>
+            <tbody id="tblBody">
+                <!-- योजनावार समूहीकृत डेटा यहाँ लोड होगा -->
+            </tbody>
+            <tfoot>
+                <tr style="font-weight: bold; background: #f0f0f0;">
+                    <td colspan="18" style="text-align: right;">कुल योग (GRAND TOTAL):</td>
+                    <td id="totDaysSum">0</td>
+                    <td class="text-right" id="totGrossSum">₹0</td>
+                    <td class="text-right" id="totGpfSum">₹0</td>
+                    <td class="text-right" id="totDedSum">₹0</td>
+                    <td class="text-right" id="totNetSum">₹0</td>
+                    <td>-</td>
+                    <td class="no-print"></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- सारांश बॉक्स -->
+        <div class="summary-box">
+            <div><b>कुल शुद्ध नकद भुगतान राशि (In Words):</b> <span id="totInWords" style="color:#0056b3;">Rupees Zero Only</span></div>
+            <div><b>कुल GPF/GPF-SAB कटौती:</b> <span id="totGpfSummary" style="color:#fd7e14;">₹0</span></div>
+        </div>
+
+        <div class="signatures">
+            <div class="sign-box">कनिष्ठ लेखाकार / लेखाकार<br>RSRTC अनूपगढ़ डिपो</div>
+            <div class="sign-box">सहायक लेखाधिकारी / लेखाधिकारी<br>RSRTC डिपो</div>
+            <div class="sign-box">मुख्य प्रबंधक<br>RSRTC अनूपगढ़ डिपो</div>
+        </div>
+    </div>
+
+    <script>
+        // राजस्थान सरकार नियमानुसार: ₹7,000 × 30 ÷ 31 = ₹6,774.19 ≈ ₹6,774
+        var MAX_BONUS = 6774;
+        var YEAR_DAYS = 372; // प्रत्येक माह 31 दिन मानकर (12 × 31 = 372 दिवस)
+        var nextEmpId = 5;
+
+        // योजनाओं का समूह क्रम (जैसे: GPF -> Retired -> GPF-SAB -> CPF)
+        var SCHEME_GROUPS = [
+            { key: 'GPF', label: 'वर्ग: GPF (25% GPF कटौती + 75% नकद बोनस देय)', badgeClass: 'badge-gpf' },
+            { key: 'RETIRED', label: 'वर्ग: Retired / सेवानिवृत्त (100% नकद बोनस भुगतान देय)', badgeClass: 'badge-ret' },
+            { key: 'GPF-SAB', label: 'वर्ग: GPF-SAB (25% SAB कटौती + 75% नकद बोनस देय)', badgeClass: 'badge-sab' },
+            { key: 'CPF', label: 'वर्ग: CPF (100% नकद बोनस भुगतान देय)', badgeClass: 'badge-cpf' }
+        ];
+
+        var MONTH_DEFS = [
+            { id: 'm_apr', max: 31 },
+            { id: 'm_may', max: 31 },
+            { id: 'm_jun', max: 31 },
+            { id: 'm_jul', max: 31 },
+            { id: 'm_aug', max: 31 },
+            { id: 'm_sep', max: 31 },
+            { id: 'm_oct', max: 31 },
+            { id: 'm_nov', max: 31 },
+            { id: 'm_dec', max: 31 },
+            { id: 'm_jan', max: 31 },
+            { id: 'm_feb', max: 31 },
+            { id: 'm_mar', max: 31 }
+        ];
+
+        // प्रारंभिक नमूना कर्मचारी
+        var employees = [
+            { id: 1, code: 'SRD-101', name: 'रामकिशन सारण', fname: 'श्री भागीरथ मल सारण', desig: 'चालक', scheme: 'GPF', ded: 0, days: [31,31,31,31,31,31,31,31,31,31,31,31] },
+            { id: 2, code: 'SRD-102', name: 'मोहन लाल शर्मा', fname: 'श्री कन्हैया लाल', desig: 'परिचालक (सेवानिवृत्त)', scheme: 'RETIRED', ded: 0, days: [31,31,31,31,31,31,31,31,31,31,31,31] },
+            { id: 3, code: 'SRD-103', name: 'सुरेश कुमार प्रजापत', fname: 'श्री भंवर लाल', desig: 'परिचालक', scheme: 'GPF-SAB', ded: 0, days: [31,31,31,31,31,31,31,31,31,16,31,31] },
+            { id: 4, code: 'SRD-104', name: 'विनोद कुमार शर्मा', fname: 'श्री रामेश्वर लाल', desig: 'कनिष्ठ सहायक', scheme: 'CPF', ded: 0, days: [31,31,31,31,31,31,31,31,31,31,31,31] }
+        ];
+
+        document.getElementById('sheetDate').innerText = "दिनांक: " + new Date().toLocaleDateString('hi-IN');
+
+        function getFormDays() {
+            var arr = [];
+            for (var i = 0; i < MONTH_DEFS.length; i++) {
+                var el = document.getElementById(MONTH_DEFS[i].id);
+                var val = parseInt(el.value);
+                if (isNaN(val) || val < 0) val = 0;
+                if (val > MONTH_DEFS[i].max) val = MONTH_DEFS[i].max;
+                arr.push(val);
+            }
+            return arr;
+        }
+
+        function calculateBonus(totalDays, scheme, ded) {
+            var gross = Math.min(MAX_BONUS, Math.round((MAX_BONUS / YEAR_DAYS) * totalDays));
+            var gpfCut = 0;
+            
+            // केवल GPF एवं GPF-SAB में 25% कटौती होती है; CPF एवं RETIRED में 0% (100% नकद)
+            if (scheme === 'GPF' || scheme === 'GPF-SAB') {
+                gpfCut = Math.round(gross * 0.25);
+            }
+            var net = Math.max(0, gross - gpfCut - ded);
+
+            return {
+                gross: gross,
+                gpfCut: gpfCut,
+                net: net
+            };
+        }
+
+        function runLiveCalc() {
+            var days = getFormDays();
+            var sumDays = 0;
+            for (var i = 0; i < days.length; i++) { sumDays += days[i]; }
+
+            var scheme = document.getElementById('in_scheme').value;
+            var ded = parseFloat(document.getElementById('in_ded').value);
+            if (isNaN(ded) || ded < 0) ded = 0;
+
+            var calc = calculateBonus(sumDays, scheme, ded);
+
+            document.getElementById('barDays').innerText = sumDays;
+            document.getElementById('barGross').innerText = '₹' + calc.gross.toLocaleString('en-IN');
+            document.getElementById('barGpf').innerText = '₹' + calc.gpfCut.toLocaleString('en-IN');
+            document.getElementById('barDed').innerText = '₹' + ded.toLocaleString('en-IN');
+            document.getElementById('barNet').innerText = '₹' + calc.net.toLocaleString('en-IN');
+        }
+
+        function setFullYear() {
+            for (var i = 0; i < MONTH_DEFS.length; i++) {
+                document.getElementById(MONTH_DEFS[i].id).value = MONTH_DEFS[i].max;
+            }
+            runLiveCalc();
+        }
+
+        function setZeroAll() {
+            for (var i = 0; i < MONTH_DEFS.length; i++) {
+                document.getElementById(MONTH_DEFS[i].id).value = 0;
+            }
+            runLiveCalc();
+        }
+
+        // योजनावार समूहीकृत (Scheme-grouped) टेबल तैयार करना
+        function drawTable() {
+            var tbody = document.getElementById('tblBody');
+            tbody.innerHTML = '';
+
+            var gGross = 0, gGpf = 0, gDed = 0, gNet = 0, gDays = 0;
+            var serialNo = 1;
+
+            SCHEME_GROUPS.forEach(function(grp) {
+                // वर्तमान स्कीम के कर्मचारी फ़िल्टर करें
+                var grpEmployees = employees.filter(function(e) { return e.scheme === grp.key; });
+
+                if (grpEmployees.length > 0) {
+                    // ग्रुप हेडर रो (Category Separator)
+                    var headerTr = document.createElement('tr');
+                    headerTr.innerHTML = 
+                        '<td colspan="25" class="scheme-group-header">' +
+                        '📂 <b>' + grp.label + '</b> &nbsp; | &nbsp; कर्मचारी संख्या: ' + grpEmployees.length +
+                        '</td>';
+                    tbody.appendChild(headerTr);
+
+                    // इस ग्रुप के सभी कर्मचारी रेंडर करें
+                    grpEmployees.forEach(function(emp) {
+                        var totalDays = 0;
+                        for (var d = 0; d < emp.days.length; d++) { totalDays += emp.days[d]; }
+
+                        var calc = calculateBonus(totalDays, emp.scheme, emp.ded);
+
+                        gDays += totalDays;
+                        gGross += calc.gross;
+                        gGpf += calc.gpfCut;
+                        gDed += emp.ded;
+                        gNet += calc.net;
+
+                        var monthTds = '';
+                        for (var m = 0; m < emp.days.length; m++) {
+                            var val = emp.days[m];
+                            var isShort = (val < MONTH_DEFS[m].max);
+                            monthTds += '<td style="' + (isShort ? 'color:#c00; font-weight:bold;' : '') + '">' + val + '</td>';
+                        }
+
+                        var tr = document.createElement('tr');
+                        tr.innerHTML = 
+                            '<td>' + (serialNo++) + '</td>' +
+                            '<td>' + emp.code + '</td>' +
+                            '<td class="text-left"><b>' + emp.name + '</b></td>' +
+                            '<td class="text-left">' + (emp.fname || '-') + '</td>' +
+                            '<td class="text-left">' + emp.desig + '</td>' +
+                            '<td><span class="' + grp.badgeClass + '">' + emp.scheme + '</span></td>' +
+                            monthTds +
+                            '<td><b>' + totalDays + '</b></td>' +
+                            '<td class="text-right">₹' + calc.gross.toLocaleString('en-IN') + '</td>' +
+                            '<td class="text-right" style="color:#b25900; font-weight:bold;">₹' + calc.gpfCut.toLocaleString('en-IN') + '</td>' +
+                            '<td class="text-right">₹' + emp.ded.toLocaleString('en-IN') + '</td>' +
+                            '<td class="text-right" style="font-weight:bold; color:#0056b3;">₹' + calc.net.toLocaleString('en-IN') + '</td>' +
+                            '<td></td>' +
+                            '<td class="no-print"><button onclick="deleteEmp(' + emp.id + ')" style="background:#dc3545; color:white; border:none; padding:1px 5px; border-radius:3px; cursor:pointer;">✕</button></td>';
+                        tbody.appendChild(tr);
+                    });
+                }
+            });
+
+            document.getElementById('empCount').innerText = employees.length;
+            document.getElementById('totDaysSum').innerText = gDays;
+            document.getElementById('totGrossSum').innerText = '₹' + gGross.toLocaleString('en-IN');
+            document.getElementById('totGpfSum').innerText = '₹' + gGpf.toLocaleString('en-IN');
+            document.getElementById('totDedSum').innerText = '₹' + gDed.toLocaleString('en-IN');
+            document.getElementById('totNetSum').innerText = '₹' + gNet.toLocaleString('en-IN');
+            document.getElementById('totGpfSummary').innerText = '₹' + gGpf.toLocaleString('en-IN');
+            
+            // राशि अंग्रेजी शब्दों में
+            document.getElementById('totInWords').innerText = convertToWordsEnglish(gNet);
+        }
+
+        function addEmployee() {
+            var name = document.getElementById('in_name').value.trim() || ('कर्मचारी-' + (employees.length + 1));
+            var fname = document.getElementById('in_fname').value.trim() || '-';
+            var code = document.getElementById('in_code').value.trim() || ('SRD-' + (100 + employees.length + 1));
+            var desig = document.getElementById('in_desig').value.trim() || 'चालक';
+            var scheme = document.getElementById('in_scheme').value;
+            var ded = parseFloat(document.getElementById('in_ded').value) || 0;
+            var days = getFormDays();
+
+            employees.push({
+                id: nextEmpId++,
+                code: code,
+                name: name,
+                fname: fname,
+                desig: desig,
+                scheme: scheme,
+                ded: ded,
+                days: days
+            });
+
+            drawTable();
+
+            document.getElementById('in_name').value = '';
+            document.getElementById('in_fname').value = '';
+            document.getElementById('in_code').value = '';
+            document.getElementById('in_ded').value = '0';
+            setFullYear();
+        }
+
+        function deleteEmp(empId) {
+            employees = employees.filter(function(e) { return e.id !== empId; });
+            drawTable();
+        }
+
+        function clearTable() {
+            employees = [];
+            drawTable();
+        }
+
+        function loadSample200() {
+            employees = [];
+            nextEmpId = 1;
+            var roles = ['चालक', 'परिचालक', 'आर्टिजन-I', 'कनिष्ठ सहायक', 'सहायक यातायात निरीक्षक'];
+            var fatherNames = ['श्री रामेश्वर लाल', 'श्री भंवर लाल', 'श्री भागीरथ मल', 'श्री जगदीश प्रसाद', 'श्री मालचंद', 'श्री दानाराम'];
+            var schemes = ['GPF', 'RETIRED', 'GPF-SAB', 'CPF'];
+
+            for (var i = 1; i <= 200; i++) {
+                var d = [];
+                for (var m = 0; m < MONTH_DEFS.length; m++) {
+                    d.push(MONTH_DEFS[m].max);
+                }
+
+                if (i % 20 === 0) {
+                    d[9] = 16;
+                } else if (i % 15 === 0) {
+                    d[10] = 20;
+                } else if (i % 12 === 0) {
+                    d[0] = 21;
+                    d[5] = 18;
+                }
+
+                employees.push({
+                    id: nextEmpId++,
+                    code: 'SRD-' + (1000 + i),
+                    name: 'कर्मचारी ' + i,
+                    fname: fatherNames[i % fatherNames.length],
+                    desig: roles[i % roles.length],
+                    scheme: schemes[i % schemes.length],
+                    ded: (i % 35 === 0) ? 500 : 0,
+                    days: d
+                });
+            }
+            drawTable();
+        }
+
+        // संख्या को अंग्रेजी शब्दों में बदलने का फंक्शन (Indian Numbering Format)
+        function convertToWordsEnglish(num) {
+            if (!num || num === 0) return "Rupees Zero Only";
+            
+            var a = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+                     'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+            var b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+
+            function inWords(n) {
+                if (n < 20) return a[n];
+                var digit = n % 10;
+                return b[Math.floor(n / 10)] + (digit ? " " + a[digit] : "");
+            }
+
+            var str = "";
+            var crore = Math.floor(num / 10000000);
+            num %= 10000000;
+            var lakh = Math.floor(num / 100000);
+            num %= 100000;
+            var thousand = Math.floor(num / 1000);
+            num %= 1000;
+            var hundred = Math.floor(num / 100);
+            num %= 100;
+
+            if (crore > 0) str += inWords(crore) + " Crore ";
+            if (lakh > 0) str += inWords(lakh) + " Lakh ";
+            if (thousand > 0) str += inWords(thousand) + " Thousand ";
+            if (hundred > 0) str += inWords(hundred) + " Hundred ";
+            if (num > 0) {
+                if (str !== "") str += "and ";
+                str += inWords(num) + " ";
+            }
+            
+            return "Rupees " + str.trim() + " Only";
+        }
+
+        runLiveCalc();
+        drawTable();
+    </script>
+</body>
+</html>
