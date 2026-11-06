@@ -298,6 +298,15 @@
             <button class="btn-red" onclick="clearTable()">🗑️ पूरी तालिका खाली करें</button>
             <button class="btn-green" onclick="window.print()">🖨️ वाउचर प्रिंट निकालें (A4 Landscape)</button>
         </div>
+        <div class="btn-group" style="align-items: center; background: #eef4fc; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbe0f8; margin-top: 10px;">
+            <span id="saveStatus" style="font-size: 12px; color: #155724; background: #d4edda; padding: 5px 10px; border-radius: 4px; border: 1px solid #c3e6cb; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+                💾 <span id="saveStatusText">LocalStorage: डेटा सुरक्षित</span>
+            </span>
+            <button type="button" class="btn-mini" onclick="exportDataJSON()" style="background:#17a2b8; color:white; border-color:#117a8b;">💾 JSON बैकअप डाउनलोड करें</button>
+            <button type="button" class="btn-mini" onclick="document.getElementById('importFile').click()" style="background:#6c757d; color:white; border-color:#545b62;">📂 JSON बैकअप रीस्टोर करें</button>
+            <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importDataJSON(event)">
+            <button type="button" class="btn-mini" onclick="resetToDefaultData()" style="background:#fff; color:#333;">🔄 डिफ़ॉल्ट डेटा रीसेट करें</button>
+        </div>
     </div>
 
     <!-- वाउचर संलग्नक शीट (A4 Landscape Print View) -->
@@ -382,6 +391,7 @@
         // राजस्थान सरकार नियमानुसार: ₹7,000 × 30 ÷ 31 = ₹6,774.19 ≈ ₹6,774
         var MAX_BONUS = 6774;
         var YEAR_DAYS = 372; // प्रत्येक माह 31 दिन मानकर (12 × 31 = 372 दिवस)
+        var STORAGE_KEY = 'rsrtc_bonous_employees_v1';
         var nextEmpId = 5;
 
         // योजनाओं का समूह क्रम (जैसे: GPF -> Retired -> GPF-SAB -> CPF)
@@ -407,13 +417,56 @@
             { id: 'm_mar', max: 31 }
         ];
 
-        // प्रारंभिक नमूना कर्मचारी
-        var employees = [
+        // प्रारंभिक डिफ़ॉल्ट नमूना कर्मचारी
+        var DEFAULT_EMPLOYEES = [
             { id: 1, code: 'SRD-101', name: 'रामकिशन सारण', fname: 'श्री भागीरथ मल सारण', desig: 'चालक', scheme: 'GPF', ded: 0, days: [31,31,31,31,31,31,31,31,31,31,31,31] },
             { id: 2, code: 'SRD-102', name: 'मोहन लाल शर्मा', fname: 'श्री कन्हैया लाल', desig: 'परिचालक (सेवानिवृत्त)', scheme: 'RETIRED', ded: 0, days: [31,31,31,31,31,31,31,31,31,31,31,31] },
             { id: 3, code: 'SRD-103', name: 'सुरेश कुमार प्रजापत', fname: 'श्री भंवर लाल', desig: 'परिचालक', scheme: 'GPF-SAB', ded: 0, days: [31,31,31,31,31,31,31,31,31,16,31,31] },
             { id: 4, code: 'SRD-104', name: 'विनोद कुमार शर्मा', fname: 'श्री रामेश्वर लाल', desig: 'कनिष्ठ सहायक', scheme: 'CPF', ded: 0, days: [31,31,31,31,31,31,31,31,31,31,31,31] }
         ];
+
+        var employees = [];
+
+        // LocalStorage सेव और लोड फंक्शन्स
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(employees));
+                showSaveStatus('सुरक्षित (' + employees.length + ' कर्मचारी)');
+            } catch (err) {
+                console.error('LocalStorage save error:', err);
+                showSaveStatus('सेव त्रुटि: ' + err.message);
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                var data = localStorage.getItem(STORAGE_KEY);
+                if (data !== null) {
+                    var parsed = JSON.parse(data);
+                    if (Array.isArray(parsed)) {
+                        employees = parsed;
+                        var maxId = 0;
+                        for (var i = 0; i < employees.length; i++) {
+                            if (employees[i] && employees[i].id && employees[i].id > maxId) {
+                                maxId = employees[i].id;
+                            }
+                        }
+                        nextEmpId = Math.max(maxId + 1, 5);
+                        return true;
+                    }
+                }
+            } catch (err) {
+                console.error('LocalStorage load error:', err);
+            }
+            return false;
+        }
+
+        function showSaveStatus(text) {
+            var el = document.getElementById('saveStatusText');
+            if (el) {
+                el.innerText = 'LocalStorage: ' + text;
+            }
+        }
 
         document.getElementById('sheetDate').innerText = "दिनांक: " + new Date().toLocaleDateString('hi-IN');
 
@@ -572,6 +625,7 @@
                 days: days
             });
 
+            saveToLocalStorage();
             drawTable();
 
             document.getElementById('in_name').value = '';
@@ -582,16 +636,29 @@
         }
 
         function deleteEmp(empId) {
+            if (!confirm("क्या आप इस कर्मचारी को हटाना चाहते हैं?")) return;
             employees = employees.filter(function(e) { return e.id !== empId; });
+            saveToLocalStorage();
             drawTable();
         }
 
         function clearTable() {
+            if (employees.length === 0) {
+                alert("तालिका पहले से ही खाली है।");
+                return;
+            }
+            if (!confirm("क्या आप पूरी तालिका खाली करना चाहते हैं? यह LocalStorage से भी मिट जाएगी।")) return;
             employees = [];
+            saveToLocalStorage();
             drawTable();
         }
 
         function loadSample200() {
+            if (employees.length > 0) {
+                if (!confirm("200 नमूना कर्मचारियों का डेटा लोड करने से वर्तमान सूची बदल जाएगी। क्या आप आगे बढ़ना चाहते हैं?")) {
+                    return;
+                }
+            }
             employees = [];
             nextEmpId = 1;
             var roles = ['चालक', 'परिचालक', 'आर्टिजन-I', 'कनिष्ठ सहायक', 'सहायक यातायात निरीक्षक'];
@@ -624,7 +691,68 @@
                     days: d
                 });
             }
+            saveToLocalStorage();
             drawTable();
+        }
+
+        function resetToDefaultData() {
+            if (!confirm("क्या आप डिफ़ॉल्ट 4 कर्मचारियों का डेटा वापस लाना चाहते हैं? वर्तमान डेटा बदल जाएगा।")) return;
+            employees = JSON.parse(JSON.stringify(DEFAULT_EMPLOYEES));
+            nextEmpId = 5;
+            saveToLocalStorage();
+            drawTable();
+        }
+
+        function exportDataJSON() {
+            if (!employees || employees.length === 0) {
+                alert("डाउनलोड करने के लिए तालिका में कोई डेटा नहीं है!");
+                return;
+            }
+            var jsonStr = JSON.stringify(employees, null, 2);
+            var blob = new Blob([jsonStr], { type: "application/json;charset=utf-8" });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            var now = new Date();
+            var dateStr = now.getFullYear() + "-" + String(now.getMonth()+1).padStart(2, '0') + "-" + String(now.getDate()).padStart(2, '0');
+            a.href = url;
+            a.download = "RSRTC_Bonus_Data_" + dateStr + ".json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showSaveStatus("JSON बैकअप डाउनलोड किया गया");
+        }
+
+        function importDataJSON(event) {
+            var file = event.target.files && event.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    var parsed = JSON.parse(e.target.result);
+                    if (Array.isArray(parsed)) {
+                        if (confirm("इस फ़ाइल में " + parsed.length + " कर्मचारी मिले। क्या आप इसे लोड और LocalStorage में सुरक्षित करना चाहते हैं?")) {
+                            employees = parsed;
+                            var maxId = 0;
+                            for (var i = 0; i < employees.length; i++) {
+                                if (employees[i] && employees[i].id && employees[i].id > maxId) {
+                                    maxId = employees[i].id;
+                                }
+                            }
+                            nextEmpId = Math.max(maxId + 1, 1);
+                            saveToLocalStorage();
+                            drawTable();
+                            alert("सफलतापूर्वक " + parsed.length + " कर्मचारियों का डेटा लोड किया गया!");
+                        }
+                    } else {
+                        alert("फ़ाइल में सही डेटा प्रारूप नहीं है (JSON array अपेक्षित है)।");
+                    }
+                } catch (err) {
+                    alert("JSON फ़ाइल पढ़ने में त्रुटि: " + err.message);
+                }
+                event.target.value = '';
+            };
+            reader.readAsText(file);
         }
 
         // संख्या को अंग्रेजी शब्दों में बदलने का फंक्शन (Indian Numbering Format)
@@ -661,6 +789,16 @@
             }
             
             return "Rupees " + str.trim() + " Only";
+        }
+
+        // प्रारंभिक डेटा लोड: पहले LocalStorage चेक करें, यदि पहली बार है तो डिफ़ॉल्ट डेटा सेट करें
+        var hasSavedData = loadFromLocalStorage();
+        if (!hasSavedData) {
+            employees = JSON.parse(JSON.stringify(DEFAULT_EMPLOYEES));
+            nextEmpId = 5;
+            saveToLocalStorage();
+        } else {
+            showSaveStatus('डेटा लोड हुआ (' + employees.length + ' कर्मचारी)');
         }
 
         runLiveCalc();
